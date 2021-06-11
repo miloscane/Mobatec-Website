@@ -15,7 +15,7 @@ var dripClient 			= 	require('drip-nodejs')(
     
   }
 );
-var io					=	require('socket.io')(http);
+//var io					=	require('socket.io')(http);
 var cookieParser		=	require('cookie-parser');
 var crypto				=	require('crypto');
 var mongo				=	require('mongodb');
