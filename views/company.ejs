@@ -1,0 +1,220 @@
+<%- include ("partials/header") -%>
+	<div class="companyPageHeader">
+		<div class="overlay"></div>
+		<div class="title">We are Mobatec.</div>
+	</div>
+	<div class="pageBigTitle">Making Innovation possible</div>
+	<div class="pageNote">for over 20 years</div>
+	<div class="gradientBackground contactWrap paddedSection">
+		<div class="shortContent">
+			<div class="dualContent">
+				<div class="imageWrap">
+					<div class="title">Get in Touch2</div>
+					<div class="contactTitle">EMAIL US</div>
+					<div class="contactItem">
+						<a href="mailto:info@mobatec.nl">info@mobatec.nl</a><div class="arrow"><img src="/icons/rightArrowSmall.png"></div>
+					</div>
+					<div class="contactTitle">CALL US</div>
+					<div class="contactItem">
+						<a href="tel:+31-62-477-1097">+31-62-477-1097</a><div class="arrow"><img src="/icons/rightArrowSmall.png"></div>
+					</div>
+					<div class="contactTitle">ADDRESS</div>
+					<div class="contactItem">
+						<a href="https://www.google.com/maps/place/Mobatec+B.V./@51.3060038,5.6188,15z/data=!4m5!3m4!1s0x0:0xefc582e923844308!8m2!3d51.3060038!4d5.6188" rel="external" target="_blank">Poelsnep 2, 6026 BZ Maarheze, The Netherlands</a><div class="arrow"><img src="/icons/rightArrowSmall.png"></div>
+					</div>
+				</div>
+				<div class="textWrap">
+					<div class="formWrap">
+						<form method="POST" action="/contact">
+							<div class="infoWrap">
+								<div class="inputWrap">
+									<input type="text" name="name" placeholder="Your name">
+								</div>
+								<div class="inputWrap">
+									<input type="e-mail" name="email" placeholder="Email address">
+								</div>
+							</div>
+							<div class="textAreaWrap">
+								<textarea name="message" placeholder="Message ..."></textarea>
+							</div>
+							<div class="button" onclick="submitForm()">Send message</div>
+						</form>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	<div class="pageBigTitle paddedSection">Meet the experts</div>
+	<div id="team"></div>
+	<script>
+		var team	=	<%- JSON.stringify(team) %>;
+
+		for(var i=0;i<team.length;i++){
+			var wrap 	=	document.createElement("DIV");
+			wrap.setAttribute("class","teamMemberWrap");
+
+				var imageWrap	=	document.createElement("DIV");
+				imageWrap.setAttribute("class","imageWrap");
+					var	image	=	document.createElement("IMG");
+					image.setAttribute("src",team[i].imageurl);
+					imageWrap.appendChild(image);
+
+				var infoWrap	=	document.createElement("DIV");
+				infoWrap.setAttribute("class","infoWrap");
+					var title	=	document.createElement("DIV");
+					title.setAttribute("class","title");
+					title.innerHTML	=	team[i].name;
+					infoWrap.appendChild(title);
+
+					var rolesWrap	=	document.createElement("DIV");
+					rolesWrap.setAttribute("class","rolesWrap");
+					for(var j=0;j<team[i].titles.length;j++){
+						var role 	=	document.createElement("DIV");
+						role.setAttribute("class","role");
+						role.innerHTML	=	team[i].titles[j];
+						rolesWrap.appendChild(role);
+					}
+					infoWrap.appendChild(rolesWrap);
+
+					var skillsWrap	=	document.createElement("DIV");
+					skillsWrap.setAttribute("class","skillsWrap");
+					for(var j=0;j<team[i].skills.length;j++){
+						var skill 	=	document.createElement("DIV");
+						skill.setAttribute("class","skill");
+						skill.innerHTML	=	team[i].skills[j];
+						skillsWrap.appendChild(skill);
+					}
+
+					infoWrap.appendChild(skillsWrap);
+
+				var description	=	document.createElement("DIV");
+				description.setAttribute("class","description");
+				description.innerHTML	=	team[i].description;
+
+
+				var separator	=	document.createElement("DIV");
+				if(i%2==0){
+					//even
+					wrap.appendChild(imageWrap);
+					wrap.appendChild(infoWrap);
+					wrap.appendChild(description);
+					wrap.classList.add("teamMemberEven");
+					separator.setAttribute("class","leftSeparator");
+				}else{
+					wrap.appendChild(description);
+					wrap.appendChild(infoWrap);
+					wrap.appendChild(imageWrap);
+					separator.setAttribute("class","rightSeparator");
+					wrap.classList.add("teamMemberOdd");
+				}
+
+			document.getElementById("team").appendChild(wrap);
+			if(i!=team.length-1){
+				document.getElementById("team").appendChild(separator)
+			}
+		}
+
+		function adaptTeamLayout(){
+			var vw	=	Math.max(document.documentElement.clientWidth || 0, window.innerWidth || 0);
+			var elements	=	document.getElementById("team").getElementsByClassName("teamMemberOdd");
+			
+			for(var i=0;i<elements.length;i++){
+				var descriptionElement	=	elements[i].getElementsByClassName("description")[0];
+				if(vw<=960){
+					elements[i].removeChild(descriptionElement);
+					elements[i].appendChild(descriptionElement);
+				}else{
+					elements[i].removeChild(descriptionElement);
+					elements[i].insertBefore(descriptionElement,elements[i].getElementsByClassName("infoWrap")[0]);
+				}
+			}
+		}
+
+		adaptTeamLayout();
+		window.addEventListener('resize', function(event){
+			adaptTeamLayout();
+		});
+	</script>
+	<div id="gallery" class="companyGallery paddedSection">
+		<div class="mainTitle">Memorable Moments ;)</div>
+		<div class="hashtagsWrap">#mobatec #modelling #simulation #fun #teamBuilding #drinks #success #training #life #love #operations #engineering #innovation #industry4</div>
+	</div>
+	<div id="lightbox">
+		<div class="contentWrap">
+			<div class="arrowLeftWrap" onclick="navigateLightbox(-1)">
+				<div class="relative"><img src="/icons/leftArrow.png"></div>
+			</div>
+			<div class="imageWrap">
+				<div class="relative">
+					
+				</div>
+			</div>
+			<div class="arrowRightWrap" onclick="navigateLightbox(1)">
+				<div class="relative"><img src="/icons/rightArrow.png"></div>
+			</div>
+			<div class="closeWrap" onclick="closeLightbox()">
+				<img src="/icons/close.png">
+			</div>
+		</div>
+	</div>
+	<script>
+		var photos	=	<%- JSON.stringify(photos) %>;
+
+		for(var i=0;i<photos.length;i++){
+			var photoJson	=	JSON.parse(JSON.stringify(photos[i]));
+			var photoWrap	=	document.createElement("DIV");
+			photoWrap.setAttribute("class","photoWrap");
+				var photo	=	document.createElement("IMG");
+				photo.setAttribute("src","/images/memorable-moments/thumbnails/"+photoJson.filename);
+				photo.setAttribute("class","photo");
+				photo.setAttribute("alt",photoJson.alt);
+				photo.setAttribute("title",photoJson.title);
+				photo.setAttribute("data-photojson",JSON.stringify(photoJson));
+				photo.setAttribute("onclick","enlargePhoto(this)");
+				photoWrap.appendChild(photo);
+
+			document.getElementById("gallery").appendChild(photoWrap);
+		}
+
+		function enlargePhoto(elem){
+			var photoJson	=	JSON.parse(elem.dataset.photojson);
+			var image	=	document.createElement("IMG");
+			image.setAttribute("src","/images/memorable-moments/"+photoJson.filename);
+			image.setAttribute("class","mainImage");
+			image.setAttribute("data-photojson",JSON.stringify(photoJson));
+			document.getElementById("lightbox").getElementsByClassName("imageWrap")[0].getElementsByClassName("relative")[0].appendChild(image);
+			document.getElementById("lightbox").classList.add("lightboxActive");
+		}
+
+		function closeLightbox(){
+			document.getElementById("lightbox").classList.remove("lightboxActive");
+			setTimeout(function(){document.getElementById("lightbox").getElementsByClassName("mainImage")[0].parentNode.removeChild(document.getElementById("lightbox").getElementsByClassName("mainImage")[0])},500)
+		}
+
+		function navigateLightbox(direction){
+			var currentPhotoJson	=	JSON.parse(document.getElementById("lightbox").getElementsByClassName("mainImage")[0].dataset.photojson);
+
+			var allPhotos			=	document.getElementById("gallery").getElementsByClassName("photo");
+			var photoIndex			=	-1;
+			for(var i=0;i<allPhotos.length;i++){
+				var photoJson	=	JSON.parse(allPhotos[i].dataset.photojson);
+				if(currentPhotoJson.order==photoJson.order){
+					photoIndex	=	i;
+					break;
+				}
+			}
+
+			var newIndex	=	photoIndex+direction;
+			if(newIndex>allPhotos.length-1){
+				newIndex	=	0;
+			}else if(newIndex<0){
+				newIndex	=	allPhotos.length-1;
+			}
+
+			var newPhotoJson	=	JSON.parse(allPhotos[newIndex].dataset.photojson)
+			document.getElementById("lightbox").getElementsByClassName("mainImage")[0].setAttribute("src","/images/memorable-moments/"+newPhotoJson.filename);
+			document.getElementById("lightbox").getElementsByClassName("mainImage")[0].setAttribute("data-photojson",JSON.stringify(newPhotoJson));
+				
+		}
+	</script>
+<%- include ("partials/footer") -%>

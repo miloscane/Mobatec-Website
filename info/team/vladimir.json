@@ -1,0 +1,8 @@
+{
+	"order"			:	40,
+	"name"			:	"Vladimir Obradovic",
+	"imageurl"		:	"/images/mathieu.jpg",
+	"description"	:	"Graduated as a Chemical Engineer at the Belgrade University, Faculty of Technology and Metallurgy. Immediately Vladimir decided to extend his knowledge and participated and succesfully concluded the Professional Doctorate in Engineering at the Technical University of Eindhoven, with focus to Multi-Phase Reactor modelling. A passion for chemical engineering and with that the design of “the real” dynamic tooling to simulate and build the best possible plants.<br>“Give me the problem I will create the solution” is what best describes Vladimir.",
+	"titles"		:	["Senior model engineer","Modelling Consultant"],
+	"skills"		:	["Modelling","Simulation","PDE"]
+}

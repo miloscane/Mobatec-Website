@@ -1,0 +1,8 @@
+{
+	"order"			:	60,
+	"name"			:	"Wim Werkhoven",
+	"imageurl"		:	"/images/mathieu.jpg",
+	"description"	:	"Passionate about IT and Video Surveillance technology, and enjoys creating success. He has an entrepreneurial spirit, and focuses on providing value added solutions. He also has broad experience in system/network design and setups, video security and surveillance installations, troubleshooting large scale technical issues and taking control of critical situations.",
+	"titles"		:	["Network Administrator","IT Consultant","IT Management"],
+	"skills"		:	["Networking","Backup","IT Infrastructure","Video Surveillance"]
+}

@@ -1,0 +1,8 @@
+{
+	"order"			:	80,
+	"name"			:	"Marco Kemmers",
+	"imageurl"		:	"/images/mathieu.jpg",
+	"description"	:	"Peter Heerschap (1963) studied chemical engineering and Human Resources Management. He acted as Learning & Development Advisor for Shell in The Netherlands and abroad, with specific focus on training of operators and technicians. Checking and training competences are of utmost importance, even though training on the job has become extinct, nowadays. Still, real-life operator training is the key to craftsmanship and professionalism. It is Peter’s quest that newest technology and methods are available to trainers and trainees, and will continuously evolve to maintain state-of-the-art training and certification tools.",
+	"titles"		:	["Advisor","Consulting Plant manager"],
+	"skills"		:	["Six Sigma", "Logistics","Process Imporvement"]
+}

@@ -1,0 +1,8 @@
+{
+	"order"			:	50,
+	"name"			:	"Milos Ivankovic",
+	"imageurl"		:	"/images/mathieu.jpg",
+	"description"	:	"Graduated as a Chemical Engineer at the Belgrade University, Faculty of Technology and Metallurgy, Miloš was immediately admitted to work for Mobatec.<br>Beside the talent for mathematical modelling a passion for computer programming and web technologies made him an important member of our team.<br>“Continuous improvements and innovations” is what describes him the best.",
+	"titles"		:	["Model & Simulation Engineer","TAGnology Expert","Software Support","Web Development"],
+	"skills"		:	["Modelling","Simulation","Software Programming","App programming","Design"]
+}

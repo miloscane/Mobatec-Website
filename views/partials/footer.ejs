@@ -1,0 +1,73 @@
+ 		</div><!--id:Site content-->
+ 	</body>
+ 	<footer>
+ 		<div class="footerWrap">
+ 			<div class="footerElem">
+ 				<div class="title">EVENTS</div>
+ 				<div class="separator"></div>
+ 				<div class="eventItemWrap">
+ 					<div class="icon">
+ 						<img src="/icons/calendarIcon.png">
+ 					</div>
+ 					<div class="note">Advanced Process Modelling Course</div>
+ 				</div>
+ 			</div>
+ 			<div class="footerElem" id="footer-menu">
+ 				<div class="title">JUMP TO</div>
+ 				<div class="separator"></div>
+ 				<div class="itemWrap">
+ 					<div class="note"><a href="/" data-pagename="home">Home</a></div>
+ 					<div class="note"><a href="/services" data-pagename="services">Services</a></div>
+ 					<div class="note"><a href="/products" data-pagename="products">Products</a></div>
+ 					<div class="note"><a href="/projects" data-pagename="projects">Projects</a></div>
+ 					<div class="note"><a href="/downloads" data-pagename="downloads">Downloads</a></div>
+ 					<div class="note"><a href="/company" data-pagename="company">Company</a></div>
+ 				</div>
+ 			</div>
+ 			<div class="footerElem">
+ 				<div class="title">GET IN TOUCH</div>
+ 				<div class="separator"></div>
+ 				<div class="itemWrap">
+ 					Mobatec BV. headquarters<br>&nbsp;<br>
+					Poelsnep 2<br>
+					6026 BZ Maarheeze<br>
+					The Netherlands<br>&nbsp;<br>
+					Phone: +31 (0)62 47 71 097<br>
+					Email: info@mobatec.nl<br>&nbsp;<br>
+					KVK: 1408 4360<br>
+					BTW: NL 8142.56.041.B01
+ 				</div>
+ 			</div>
+ 			<div class="footerElem">
+ 				<div class="title">FOLLOW US</div>
+ 				<div class="separator"></div>
+ 				<div class="itemWrap">
+ 					<div class="button"><a href="#">Newsletter</a></div>
+ 					<div class="button"><a href="#">LinkedIN</a></div>
+ 				</div>
+ 			</div>
+ 			<div class="copyrightWrap">
+ 				Copyright &#169; <span class="yearPrint"></span> Mobatec BV. All website content is subject to our <a href="#">Privacy Policy</a>. Access our <a href="#">Terms and Conditions</a>.
+ 			</div>
+ 		</div>
+ 	</footer>
+ 	<script type="text/javascript" src="/js/postLoad.js"></script>
+	<% if (typeof pageName!="undefined") { %>
+	<script>
+		var pageName	=	<%- JSON.stringify(pageName) %>;
+		var linksToLightUp	=	document.getElementById("main-menu").querySelectorAll("a");
+		for(var i=0;i<linksToLightUp.length;i++){
+			if(linksToLightUp[i].dataset.pagename==pageName){
+				linksToLightUp[i].classList.add("activeLink");
+			}
+		}
+
+		var linksToLightUp	=	document.getElementById("footer-menu").querySelectorAll("a");
+		for(var i=0;i<linksToLightUp.length;i++){
+			if(linksToLightUp[i].dataset.pagename==pageName){
+				linksToLightUp[i].classList.add("activeLink");
+			}
+		}
+	</script>
+	<% } %>
+</html>

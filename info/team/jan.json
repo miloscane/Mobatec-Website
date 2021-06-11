@@ -1,0 +1,8 @@
+{
+	"order"			:	20,
+	"name"			:	"Jan Laurens",
+	"imageurl"		:	"/images/mathieu.jpg",
+	"description"	:	"Jan Laurens has been working as model engineer at DSM Research for a period of 17 years. During the last 7 years he was the workgroup leader of the modelling group. After that period he engaged a position as modelling engineer at DSM’s Stamicarbon. Since 1994 he has founded his own company, providing model engineering and model development to customers in industry.<br>The models Jan developed have been, and still are, used for product and process development, debottlenecking, process optimisation, process control and training&simulation. Besides the knowledge needed on numerical mathematics techniques the modelling activities performed require expert insight in physical and chemical technology.<br>For use of model building the simulator software package Mobatec LauTrane has been developed by Jan and has been succesfully in use during the past 20 years. Mobatec LauTrane is now fully integrated into the Mobatec Modeller, and still under Jan’s attention for further developments.",
+	"titles"		:	["Thermodynamics Expert","Co-founder of Mobatec","Solver Programmer"],
+	"skills"		:	["Management","Programming","Modelling","Simulation"]
+}

@@ -1,0 +1,8 @@
+{
+	"order"			:	30,
+	"name"			:	"Wouter Hartmann",
+	"imageurl"		:	"/images/mathieu.jpg",
+	"description"	:	"PhD in astrophysics, experienced model engineer in the research and the IT services industry. “Modelling by heart” describes him best, a personal drive in creating the best possible models and providing the best solution for physics research, process development, analysis and testing. Specializations in numerical simulation and model engineering of physical and chemical processes and scientific algorithm development.",
+	"titles"		:	["Senior model engineer","Modelling Consultant"],
+	"skills"		:	["Modelling","Simulation","Mathematics"]
+}

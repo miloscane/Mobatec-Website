@@ -1,0 +1,8 @@
+{
+	"order"			:	10,
+	"name"			:	"Mathieu Westerweele",
+	"imageurl"		:	"/images/mathieu.jpg",
+	"description"	:	"During his PhD research project, successfully concluded in april 2003, Mathieu Westerweele and prof. H.A. Preisig developed a methodology for the rapid and systematic construction of consistent dynamic process models.<br> The thesis “Five Steps for Building Consistent Dynamic Process Models” can be downloaded here. The developed approach has proven itself being very efficient. Models are constructed much faster and also guaranteed to solve structurally and in most cases also numerically. <br>From 2006 until 2013 Mathieu has been involved in the Post-Masters design course Process and Product Design (PPD) at the Eindhoven University of Technology. First year coordinator, member of the Scientific Staff and lecturer of the Modelling and Simulation course. From 2013 up to now Mathieu is still involved as lecturer at PPD.",
+	"titles"		:	["Managing Director","Co-founder of Mobatec","Software Developer","Process Modelling Expert"],
+	"skills"		:	["Management","Pascal Programming","Modelling","Simulation"]
+}

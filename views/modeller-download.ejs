@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <title><%=pageInfo.title%></title>
+        <meta name="description" content="<%=pageInfo.description%>">
+        <meta name="theme-color" content="#142a40">
+        <meta name="msapplication-navbutton-color" content="#142a40">
+        <meta name="apple-mobile-web-app-status-bar-style" content="#142a40">
+        <link href="/css/temp.css?ver=<%=pageInfo.fileVersion%>" rel="stylesheet"><!--BRISI OVO U LIVE-->
+        <!--<link href="/html-modules/minified/style.min.css?ver=<%=pageInfo.fileVersion%>" rel="stylesheet">-->
+
+        <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+        <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+        <!--[if lt IE 9]>
+          <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
+          <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+        <![endif]-->
+        <link rel="shortcut icon" href="/favicon.png" type="image/x-icon" />
+        <meta property="og:title" content="<%=pageInfo.title%>" />
+        <meta property="og:type" content="website" />
+        <meta property="og:url" content="<%=pageInfo.url%>" />
+        <meta property="og:site_name" content="<%=pageInfo.siteName%>" />
+        <meta property="og:description" content="<%=pageInfo.description%>" />
+        <meta property="og:image" content="<%=pageInfo.pageImage%>" />
+    </head>
+    <body>
+        <div class="background"></div>
+        <div class="header">
+            <img src="/logos/Mobatec-White-Logo.svg" width="150">
+        </div>
+        <div class="content">
+            <div style="text-align:center;">
+                <img src="/logos/Mobatec-Modeller-White.svg" width="150">
+            </div>
+            <div class="screenshotsWrap">
+                <div class="screenshotWrap">
+                    <img src="/MM-Screenshots-1.jpg" class="screenshot">
+                </div>
+                <div class="screenshotWrap">
+                    <img src="/MM-Screenshots-2.jpg" class="screenshot">
+                </div>
+                <div class="screenshotWrap">
+                    <img src="/MM-Screenshots-3.jpg" class="screenshot">
+                </div>
+                <div class="screenshotWrap">
+                    <img src="/MM-Screenshots-4.jpg" class="screenshot">
+                </div>
+                <div class="screenshotWrap">
+                    <img src="/MM-Screenshots-5.jpg" class="screenshot">
+                </div>
+                <div class="screenshotWrap">
+                    <img src="/MM-Screenshots-6.jpg" class="screenshot">
+                </div>
+                <div class="screenshotWrap">
+                    <img src="/MM-Screenshots-7.jpg" class="screenshot">
+                </div>
+                <div class="screenshotWrap">
+                    <img src="/MM-Screenshots-8.jpg" class="screenshot">
+                </div>
+                <div class="screenshotWrap">
+                    <img src="/MM-Screenshots-9.jpg" class="screenshot">
+                </div>
+                <div class="screenshotWrap">
+                    <img src="/MM-Screenshots-10.jpg" class="screenshot">
+                </div>
+            </div>
+            <div class="formWrapper">
+                <div class="topWrap">
+                    <div class="left"></div>
+                    <div class="middle"></div>
+                    <div class="right"></div>
+                </div>
+                <div class="form">
+                    <div class="title">Once you have verified your e-mail you get:</div>
+                    <ul>
+                        <li>Latest Mobatec Modeller <span class="green">installer</span></li>
+                        <li>access to our Introduction to Process Modelling <span class="green">webinar</span> recording</li>
+                        <li>1 month free (educational) <span class="green">license</span> for the software</li>
+                        <li>Free <span class="green">Whitepaper</span>: "Successfully apply modelling and simulation in process industry"</li>
+                    </ul>
+                    <form method="POST" action="/modeller-download" id="form">
+                        <div class="inputsWrap">
+                            <div class="inputWrap">
+                                <input type="email" placeholder="E-mail" name="email" id="email">
+                            </div>
+                            <div class="inputWrap">
+                                <input type="text" placeholder="Name" name="name" id="name">
+                            </div>
+                            <div class="note">*The provided e-mail address is used for verification purposes and is not shared with third parties. You can unsubscribe from our services at any time by clicking the "Unsubscribe" link in our e-mails or by requesting it directly from us.</div>
+                            <div id="error"></div>
+                        </div>
+                    </form>
+                    <div style="text-align:center;">
+                        <div class="submitButton" onclick="document.getElementById('form').submit()">Download</div>
+                    </div>
+                    <script>
+                        function showError(errstring){
+                            document.getElementById("error").innerHTML  =   errstring;
+                        }
+                    </script>
+                    <% if (typeof email!="undefined") { %>
+                        <script>
+                            document.getElementById("email").value="<%= email %>";
+                            document.getElementById("name").value="<%= name %>";
+                            showError("Provided e-mail seems invalid. Please provide a proper e-mail address");
+                            console.log("Aaaa")
+                        </script>
+                    <%}%>
+                </div>
+            </div>
+        </div>
+        <div class="footer">
+            Copyright &#169; 2021, Mobatec<br>KVK: 1408 4360<br>BTW: NL 8142.56.041.B01
+        </div>
+    </body>
+</html>

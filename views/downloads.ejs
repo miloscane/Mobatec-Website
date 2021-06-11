@@ -1,0 +1,129 @@
+<%- include ("partials/header") -%>
+	<div class="grayBackground">
+		<div class="downloadsWrap">
+			<div class="downloadItemWrap">
+				<div class="imageWrap">
+					<img src="">
+					<div class="type">.exe</div>
+				</div>
+				<div class="separator"></div>
+				<div class="title">Mobatec Modeller</div>
+				<div class="text">Process Modelling & Simulation software</div>
+				<div class="date">Feb 8, 2021</div>
+				<div class="download">Download</div>
+			</div>
+			<div class="downloadItemWrap">
+				<div class="imageWrap">
+					<img src="">
+					<div class="type">.dll</div>
+				</div>
+				<div class="separator"></div>
+				<div class="title">License agreement</div>
+				<div class="text">Mobatec Modeller software license agreement</div>
+				<div class="date">Feb 8, 2021</div>
+				<div class="download">Download</div>
+			</div>
+			<div class="downloadItemWrap">
+				<div class="imageWrap">
+					<img src="">
+					<div class="type">.ppt</div>
+				</div>
+				<div class="separator"></div>
+				<div class="title">Company presentation</div>
+				<div class="text">Mobatec BV. Company powerpoint presentation</div>
+				<div class="date">Feb 8, 2021</div>
+				<div class="download">Download</div>
+			</div>
+			<div class="downloadItemWrap">
+				<div class="imageWrap">
+					<img src="">
+					<div class="type">.pdf</div>
+				</div>
+				<div class="separator"></div>
+				<div class="title">Company presentation</div>
+				<div class="text">Mobatec BV. Company powerpoint presentation</div>
+				<div class="date">Feb 8, 2021</div>
+				<div class="download">Download</div>
+			</div>
+			<div class="downloadItemWrap">
+				<div class="imageWrap">
+					<img src="">
+					<div class="type">.pdf</div>
+				</div>
+				<div class="separator"></div>
+				<div class="title">Company presentation</div>
+				<div class="text">Mobatec BV. Company powerpoint presentation</div>
+				<div class="date">Feb 8, 2021</div>
+				<div class="download">Download</div>
+			</div>
+			<div class="downloadItemWrap">
+				<div class="imageWrap">
+					<img src="">
+					<div class="type">.pdf</div>
+				</div>
+				<div class="separator"></div>
+				<div class="title">Company presentation</div>
+				<div class="text">Mobatec BV. Company powerpoint presentation</div>
+				<div class="date">Feb 8, 2021</div>
+				<div class="download">Download</div>
+			</div>
+			<div class="downloadItemWrap">
+				<div class="imageWrap">
+					<img src="">
+					<div class="type">.pdf</div>
+				</div>
+				<div class="separator"></div>
+				<div class="title">Company presentation</div>
+				<div class="text">Mobatec BV. Company powerpoint presentation</div>
+				<div class="date">Feb 8, 2021</div>
+				<div class="download">Download</div>
+			</div>
+			<div class="downloadItemWrap">
+				<div class="imageWrap">
+					<img src="">
+					<div class="type">.pdf</div>
+				</div>
+				<div class="separator"></div>
+				<div class="title">Company presentation</div>
+				<div class="text">Mobatec BV. Company powerpoint presentation</div>
+				<div class="date">Feb 8, 2021</div>
+				<div class="download">Download</div>
+			</div>
+		</div>
+	</div>
+	<script>
+		function equalizeRows(){
+			var vw 				=	Math.max(document.documentElement.clientWidth || 0, window.innerWidth || 0);
+			var numberOfRows	=	Math.ceil(document.getElementsByClassName("downloadsWrap")[0].getElementsByClassName("downloadItemWrap").length/3);
+			var elems 			=	document.getElementsByClassName("downloadsWrap")[0].getElementsByClassName("downloadItemWrap");
+			for(var i=0;i<numberOfRows;i++){
+				var biggestHeight	=	0;
+				for(var j=0;j<3;j++){
+					if(elems[i*3+j]){
+						elems[i*3+j].style.height 	=	"";
+					}
+				}
+				for(var j=0;j<3;j++){
+					if(elems[i*3+j]){
+						if(biggestHeight<elems[i*3+j].offsetHeight){
+							biggestHeight	=	elems[i*3+j].offsetHeight;
+						}
+					}
+					
+				}
+				for(var j=0;j<3;j++){
+					if(elems[i*3+j]){
+						elems[i*3+j].style.height 	=	biggestHeight+"px";
+					}
+					
+				}
+			}
+		}
+
+		equalizeRows();
+
+		window.addEventListener('resize', function(event){
+			equalizeRows();
+		});
+	</script>
+<%- include ("partials/footer") -%>
