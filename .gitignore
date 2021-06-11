@@ -1,0 +1,8 @@
+/node-modules
+/public/images
+/public/videos
+/public/logos
+/public/icons
+**/.DS_Store
+.env
+/secrets.json
