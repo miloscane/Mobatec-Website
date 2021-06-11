@@ -1,4 +1,4 @@
-/node-modules
+**/node_modules
 /public/images
 /public/videos
 /public/logos
