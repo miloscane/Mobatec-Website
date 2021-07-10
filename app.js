@@ -8,6 +8,8 @@ var fs					=	require('fs');
 var bodyParser			=	require('body-parser');    
 var session				=	require('express-session');
 var nodemailer 			= 	require('nodemailer');
+const dotenv = require('dotenv');
+dotenv.config();
 var dripClient 			= 	require('drip-nodejs')(
   {
     token: "e6de2d9fc66577212ea33afc7917e8f2",
@@ -19,8 +21,6 @@ var dripClient 			= 	require('drip-nodejs')(
 var cookieParser		=	require('cookie-parser');
 var crypto				=	require('crypto');
 var mongo				=	require('mongodb');
-const dotenv = require('dotenv');
-dotenv.config();
 
 var mongoClient	=	mongo.MongoClient;
 var url	=	process.env.mongourl;
