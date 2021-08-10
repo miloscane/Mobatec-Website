@@ -19,7 +19,7 @@ jobs:
     - name: Set up Node.js version
       uses: actions/setup-node@v1
       with:
-        node-version: 'node|10.14'
+        node-version: '14.x'
 
     - name: npm install, build, and test
       run: |
@@ -52,5 +52,5 @@ jobs:
       with:
         app-name: 'mobatec'
         slot-name: 'production'
-        publish-profile: ${{ secrets.AzureAppService_PublishProfile_6e2a28b4e3314e7297a9ef780bf08b08 }}
+        publish-profile: ${{ secrets.AzureAppService_PublishProfile_9bb323f34cf345dfb945a4a1939a05fd }}
         package: .
