@@ -42,6 +42,14 @@ server.use(bodyParser.urlencoded({ extended: true }));
 server.use(cookieParser());
 
 
+function hashString(string){
+	var hash	=	crypto.createHash('md5').update(string).digest('hex')
+	return hash
+}
+
+/*console.log(hashString("M0b@tec1"));
+console.log(hashString("M0b@tec2"));*/
+
 
 //PORT Listening
 http.listen(process.env.PORT, function(){
@@ -765,11 +773,50 @@ server.get('/webinars/watch/introduction-to-process-modelling/:verificationid',f
 	});
 });
 
-server.get('/test-env',function(req,res){
-	res.render('message',{
-		pageInfo: fetchPageInfo('message',''),
-		message: process.env.testingenv
+server.get('/modeller-login',function(req,res){
+	res.render('modeller-login',{
+		pageInfo: fetchPageInfo('message','')
 	});
+});
+
+server.post('/modeller-login',function(req,res){
+	var username	=	req.body.username;
+	var password	=	hashString(req.body.password);
+	if(username && password){
+		mongoClient.connect(url,{useUnifiedTopology: true},function(err,client){
+			if(err){
+				console.log(err)
+			}else{
+				var collection	=	client.db('MobaHub').collection('Modeller Cloud');
+				collection.find({username:username}).toArray(function(err,result){
+					if(err){
+						console.log(err)
+					}else{
+						if(result.length>0){
+							if(result[0].password==password){
+								res.redirect("http://mobatec.modeller.cloud:"+result[0].port+"/vnc_lite.html?password="+result[0].password);
+							}else{
+								res.render('message',{
+									pageInfo: fetchPageInfo('message',''),
+									message: "Wrong Credentials. Try <a href=\"/modeller-login\">logging in</a> again."
+								});
+							}
+						}else{
+							res.render('message',{
+								pageInfo: fetchPageInfo('message',''),
+								message: "Wrong Credentials. Try <a href=\"/modeller-login\">logging in</a> again."
+							});
+						}
+					}
+				});
+			}
+		});
+	}else{
+		res.render('message',{
+			pageInfo: fetchPageInfo('message',''),
+			message: "Wrong Credentials. Try <a href=\"/modeller-login\">logging in</a> again."
+		});
+	}
 });
 
 server.get('*',function(req,res){
