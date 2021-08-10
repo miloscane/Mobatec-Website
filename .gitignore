@@ -3,6 +3,7 @@
 /public/videos
 /public/logos
 /public/icons
+/public/downloads
 **/.DS_Store
 .env
 /secrets.json

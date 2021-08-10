@@ -12,8 +12,8 @@ const dotenv = require('dotenv');
 dotenv.config();
 var dripClient 			= 	require('drip-nodejs')(
   {
-    token: "e6de2d9fc66577212ea33afc7917e8f2",
-    accountId: 9469707
+    token: process.env.driptoken,
+    accountId: process.env.dripaccountid
     
   }
 );
@@ -25,7 +25,7 @@ var mongo				=	require('mongodb');
 var mongoClient	=	mongo.MongoClient;
 var url	=	process.env.mongourl;
 
-const campaignId = "342628276";
+const campaignId = process.env.dripcampaign;
 
 server.set('view engine','ejs');
 var viewArray	=	[__dirname+'/views'];
@@ -135,7 +135,9 @@ function subscribeToLongflow(email,name,source){
 		});
 }
 
-var keyArray		=		["Mo","tu","Ck","Uz","zI","kj","3A","5J","6t","23"];
+var keyArrayString	=	process.env.keyarray;
+
+var keyArray	=	keyArrayString.split(",");
  
 function dateToKey(date){
 	var dateString	=	date.toString();
@@ -164,8 +166,8 @@ function generateLicense(email,name,type,starttime,source){
 			licenses.insertOne(licenseJson,function(err,addedResult){
 				client.close();
 				var options = {
-					host: 'license.mobatec.nl',
-					port: '57156',
+					host: process.env.licensehost,
+					port: process.env.licenseport,
 					path: '/weblic/'+dateToKey(starttime)+'/'+encodeURIComponent(email)
 				};
 
@@ -416,7 +418,7 @@ server.post('/modeller-download',function(req,res){
 							],
 							html: "Hello "+name+",<br>You can download the latest version of Mobatec Modeller "
 							+"<a href=\"https://mobatec.azurewebsites.net/modeller-check/"+downloadcode+"\">here</a>."
-							+"<br>&nbsp;<br>You can subscribe to our free introfuction course"
+							+"<br>&nbsp;<br>You can subscribe to our free introfuction course "
 							+"<a href=\"https://www.mobatec.nl/web/course-registration\">here</a> "
 							+"and get a one month license to complete the course once you have verified your e-mail address.<br>"
 							+"Once you complete the course you will be rewarded a certificate if you provide us with the required files.<br>&nbsp;<br>"
@@ -458,7 +460,8 @@ server.get('/modeller-check/:downloadcode',function(req,res){
 				}else{
 					if(result.length>0){
 						if(result[0].valid){
-							res.redirect("https://mobatec.nl/Modeller/getlink.php?bounceback="+encodeURIComponent("https://mobatec.azurewebsites.net/modeller-latest/"+req.params.downloadcode));
+							res.download(__dirname+'/public/downloads/Modeller_v4_15563_Setup.exe','Modeller_v4_15563_Setup.exe')
+							//res.redirect("https://mobatec.nl/Modeller/getlink.php?bounceback="+encodeURIComponent("https://mobatec.azurewebsites.net/modeller-latest/"+req.params.downloadcode));
 						}else{
 							res.render('message',{
 								pageInfo: fetchPageInfo('message',''),
@@ -478,6 +481,8 @@ server.get('/modeller-check/:downloadcode',function(req,res){
 	});
 });
 
+//The beellow could be not necessary after some time, inspect it after some time
+
 server.get('/modeller-latest/:downloadcode',function(req,res){
     mongoClient.connect(url,{useUnifiedTopology: true},function(err,client){
 		if(err){
@@ -490,7 +495,8 @@ server.get('/modeller-latest/:downloadcode',function(req,res){
 				}else{
 					if(result.length>0){
 						if(result[0].valid){
-							res.redirect("https://mobatec.nl/Modeller/"+req.query.version)
+							res.download(__dirname+'/public/downloads/Modeller_v4_15563_Setup.exe','Modeller_v4_15563_Setup.exe')
+							//res.redirect("https://mobatec.nl/Modeller/"+req.query.version)
 						}else{
 							res.render('message',{
 								pageInfo: fetchPageInfo('message',''),
