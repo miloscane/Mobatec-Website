@@ -79,5 +79,14 @@
         <div class="footer">
             Copyright &#169; 2021, Mobatec<br>KVK: 1408 4360<br>BTW: NL 8142.56.041.B01
         </div>
+        <script>
+            document.getElementById('password').onkeypress = function(e){
+                if (!e) e = window.event;
+                var keyCode = e.code || e.key;
+                if (keyCode == 'Enter'){
+                  document.getElementById('form').submit()
+                }
+              }
+        </script>
     </body>
 </html>
