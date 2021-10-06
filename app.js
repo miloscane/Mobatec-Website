@@ -794,7 +794,7 @@ server.post('/modeller-login',function(req,res){
 					}else{
 						if(result.length>0){
 							if(result[0].password==password){
-								res.redirect(result[0].url+"/vnc_lite.html?password="+result[0].password+"&resize=remote");
+								res.redirect(result[0].url+"/vnc_lite.html?password="+result[0].password);
 							}else{
 								res.render('message',{
 									pageInfo: fetchPageInfo('message',''),
