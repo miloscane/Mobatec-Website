@@ -49,6 +49,7 @@ function hashString(string){
 
 /*console.log(hashString("M0b@tec1"));
 console.log(hashString("M0b@tec2"));*/
+console.log(hashString("M0b@tecM@@rheeze"));
 
 
 //PORT Listening
