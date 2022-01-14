@@ -432,9 +432,9 @@ server.post('/modeller-download',function(req,res){
 							],
 							html: "Hello "+name+",<br>You can download the latest version of Mobatec Modeller "
 							+"<a href=\"https://mobatec.azurewebsites.net/modeller-check/"+downloadcode+"\">here</a>."
-							+"<br>&nbsp;<br>You can subscribe to our free introfuction course "
+							+"<br>&nbsp;<br>You can subscribe to our free introduction course "
 							+"<a href=\"https://www.mobatec.nl/web/course-registration\">here</a> "
-							+"and get a one month license to complete the course once you have verified your e-mail address.<br>"
+							+"and <b>get a one month Mobatec Modeller license</b> to complete the course once you have verified your e-mail address.<br>"
 							+"Once you complete the course you will be rewarded a certificate if you provide us with the required files.<br>&nbsp;<br>"
 							+"We have also attached a free whitepaper \"Modelling and Simulation in Process Industry\". To view it online click <a href=\"https://www.mobatec.nl/web/downloads/Mobatec_Whitepaper_Succesfully_Apply_Simulation_Models.pdf\">here</a><br>&nbsp;<br>"
 							+"Kind regards,<br>The Mobatec Team"
