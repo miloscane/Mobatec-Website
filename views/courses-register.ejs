@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <title><%=pageInfo.title%></title>
+        <meta name="description" content="<%=pageInfo.description%>">
+        <meta name="theme-color" content="#142a40">
+        <meta name="msapplication-navbutton-color" content="#142a40">
+        <meta name="apple-mobile-web-app-status-bar-style" content="#142a40">
+        <link href="/css/temp.css?ver=<%=pageInfo.fileVersion%>" rel="stylesheet"><!--BRISI OVO U LIVE-->
+        <!--<link href="/html-modules/minified/style.min.css?ver=<%=pageInfo.fileVersion%>" rel="stylesheet">-->
+
+        <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+        <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+        <!--[if lt IE 9]>
+          <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
+          <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+        <![endif]-->
+        <link rel="shortcut icon" href="/favicon.png" type="image/x-icon" />
+        <meta property="og:title" content="<%=pageInfo.title%>" />
+        <meta property="og:type" content="website" />
+        <meta property="og:url" content="<%=pageInfo.url%>" />
+        <meta property="og:site_name" content="<%=pageInfo.siteName%>" />
+        <meta property="og:description" content="<%=pageInfo.description%>" />
+        <meta property="og:image" content="<%=pageInfo.pageImage%>" />
+    </head>
+    <body>
+        <div class="background" style="background-image:url('/images/edu-lic.jpeg')"></div>
+        <div class="header">
+            <img src="/logos/Mobatec-White-Logo.svg" width="150">
+        </div>
+        <div class="content">
+            <div style="text-align:center;">
+                <img src="/logos/Mobatec-Modeller-White.svg" width="150">
+            </div>
+            <div class="formWrapper">
+                <div class="topWrap">
+                    <div class="left"></div>
+                    <div class="middle"></div>
+                    <div class="right"></div>
+                </div>
+                <div class="form">
+                    <div class="title" style="text-align:center;margin-bottom:20px;padding-top:20px">Enter your desired password for the platform:</div>
+                    <form method="POST" action="/courses-register" id="form">
+                        <div class="inputsWrap">
+                            <div class="inputWrap">
+                                <input type="password" placeholder="Password" name="password" id="password">
+                            </div>
+                            <div class="inputWrap">
+                                <input type="password" placeholder="Password Again" id="password2">
+                            </div>
+                            <input type="text" style="display:none" name="id" value="<%=id%>">
+                            <div id="error"></div>
+                        </div>
+                    </form>
+                    <div style="text-align:center;">
+                        <div class="submitButton" onclick="submitForm()">Save Password</div>
+                    </div>
+                    <script>
+                        function showError(errstring){
+                            document.getElementById("error").innerHTML  =   errstring;
+                        }
+
+                        function submitForm(){
+                            if(document.getElementById("password").value!=document.getElementById("password2").value){
+                                showError("Passwords don't match.");
+                            }else{
+                                document.getElementById("form").submit();
+                            }
+                        }
+
+                        document.getElementById("password").addEventListener("keyup", function(event) {
+                          // Number 13 is the "Enter" key on the keyboard
+                          if (event.keyCode === 13) {
+                            // Cancel the default action, if needed
+                            event.preventDefault();
+                            // Trigger the button element with a click
+                            submitForm();
+                          }
+                        });
+
+                        document.getElementById("password2").addEventListener("keyup", function(event) {
+                          // Number 13 is the "Enter" key on the keyboard
+                          if (event.keyCode === 13) {
+                            // Cancel the default action, if needed
+                            event.preventDefault();
+                            // Trigger the button element with a click
+                            submitForm();
+                          }
+                        });
+                    </script>
+                </div>
+            </div>
+        </div>
+        <div class="footer">
+            Copyright &#169; 2022, Mobatec<br>KVK: 1408 4360<br>BTW: NL 8142.56.041.B01
+        </div>
+    </body>
+</html>

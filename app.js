@@ -1,16 +1,16 @@
 //Server
-var server				=	require('express')();
-var http				=	require('http').Server(server);
+var server				=		require('express')();
+var http					=		require('http').Server(server);
 var httpl 				= 	require('http');
-var net					=	require('net');
-var express				=	require('express');
-var fs					=	require('fs');   
-var bodyParser			=	require('body-parser');    
-var session				=	require('express-session');
-var nodemailer 			= 	require('nodemailer');
-const dotenv = require('dotenv');
+var net						=		require('net');
+var express				=		require('express');
+var fs						=		require('fs');   
+var bodyParser		=		require('body-parser');    
+var session				=		require('express-session');
+var nodemailer 		= 	require('nodemailer');
+const dotenv 			=		require('dotenv');
 dotenv.config();
-var dripClient 			= 	require('drip-nodejs')(
+var dripClient 		= 	require('drip-nodejs')(
   {
     token: process.env.driptoken,
     accountId: process.env.dripaccountid
@@ -18,9 +18,9 @@ var dripClient 			= 	require('drip-nodejs')(
   }
 );
 //var io					=	require('socket.io')(http);
-var cookieParser		=	require('cookie-parser');
-var crypto				=	require('crypto');
-var mongo				=	require('mongodb');
+var cookieParser	=		require('cookie-parser');
+var crypto				=		require('crypto');
+var mongo					=		require('mongodb');
 
 var mongoClient	=	mongo.MongoClient;
 var url	=	process.env.mongourl;
@@ -40,6 +40,11 @@ server.use(express.static(__dirname + '/public'));
 server.use(bodyParser.json());  
 server.use(bodyParser.urlencoded({ extended: true }));
 server.use(cookieParser());
+server.use(session({
+	secret: process.env.sessionsecret,
+    resave: true,
+    saveUninitialized: true
+}));
 
 
 function hashString(string){
@@ -48,8 +53,8 @@ function hashString(string){
 }
 
 /*console.log(hashString("M0b@tec1"));
-console.log(hashString("M0b@tec2"));*/
-console.log(hashString("M0b@tecM@@rheeze"));
+console.log(hashString("M0b@tec2"));
+console.log(hashString("M0b@tecM@@rheeze"));*/
 
 
 //PORT Listening
@@ -469,7 +474,7 @@ server.get('/modeller-check/:downloadcode',function(req,res){
 				}else{
 					if(result.length>0){
 						if(result[0].valid){
-							res.download(__dirname+'/public/downloads/Modeller_v4_15689_Setup.exe','Modeller_v4_15689_Setup.exe')
+							res.download(__dirname+'/public/downloads/Modeller_v4_15850_Setup.exe','Modeller_v4_15850_Setup.exe')
 							//res.redirect("https://mobatec.nl/Modeller/getlink.php?bounceback="+encodeURIComponent("https://mobatec.azurewebsites.net/modeller-latest/"+req.params.downloadcode));
 						}else{
 							res.render('message',{
@@ -504,7 +509,7 @@ server.get('/modeller-latest/:downloadcode',function(req,res){
 				}else{
 					if(result.length>0){
 						if(result[0].valid){
-							res.download(__dirname+'/public/downloads/Modeller_v4_15689_Setup.exe','Modeller_v4_15689_Setup.exe')
+							res.download(__dirname+'/public/downloads/Modeller_v4_15850_Setup.exe','Modeller_v4_15850_Setup.exe')
 							//res.redirect("https://mobatec.nl/Modeller/"+req.query.version)
 						}else{
 							res.render('message',{
@@ -820,6 +825,193 @@ server.post('/modeller-login',function(req,res){
 	}
 });
 
-server.get('*',function(req,res){
-	res.redirect("https://mobatec.nl/");
+
+/*var emailsToAdd 	=	["miloscane@gmail.com","milos@mobatec.nl","milos.ivankovic@mobatec.nl"];
+var level					=	10;
+function courseMailSend(item, index) {
+	 var mailOptions = {
+			from: '"Mobatec Cloud" <admin@mobatec.cloud>',
+			to: item.email.toLowerCase(),
+			subject: 'Welcome to Mobatec Modeller Online Courses',
+			html: "Hello,<br>You have been granted access to Mobatec Modeller Online Course material.<br>"
+			+" Please click <a href='https://mobatec.azurewebsites.net/course-register/"+item.unique+"''>here</a>"
+			+" to set a password for the online platform. <br>"
+			+"Kind regards,<br>The Mobatec Team"
+		};
+
+		transporter.sendMail(mailOptions, (error, info) => {
+			if (error) {
+				return console.log(error);
+			}else{
+				console.log("Successfully added "+item.email);
+			}
+		});
+}
+mongoClient.connect(url,{useUnifiedTopology: true},function(err,client){
+	if(err){
+		console.log(err)
+	}else{
+		var collection	=	client.db('MobaHub').collection('Courses');
+		collection.find({}).toArray(function(err,result){
+			if(err){
+				console.log(err)
+			}else{
+				for(var i=0;i<result.length;i++){
+					var foundEmail	=	result[i].email;
+					if(emailsToAdd.indexOf(foundEmail)>=0){
+						emailsToAdd.splice(emailsToAdd.indexOf(foundEmail), 1);
+						console.log("E-mail: " +foundEmail+ " already exists.");
+					}
+				}
+
+				var users 	=	[];
+				for(var i=0;i<emailsToAdd.length;i++){
+					var	user	=	{};
+					user.email	=	emailsToAdd[i];
+					user.unique = generateId(101);
+					user.level	=	level;
+					users.push(user)
+				}
+				collection.insertMany(users,function(err,archived){
+					if(err){
+						console.log(err);
+					}else{
+						users.forEach(courseMailSend);
+						client.close();
+					}
+				});
+			}
+		});
+	}
+});*/
+
+
+server.get('/courses-login',function(req,res){
+	res.render('courses-login',{
+		pageInfo: fetchPageInfo('courses','')
+	});
 });
+
+server.post('/courses-login',function(req,res){
+	var email			=	req.body.email;
+	var password	=	hashString(req.body.password);
+	var type			=	req.body.type;//0-login, 1-forgot password
+	mongoClient.connect(url,{useUnifiedTopology: true},function(err,client){
+		if(err){
+			console.log(err)
+		}else{
+			var collection	=	client.db('MobaHub').collection('Courses');
+			collection.find({email:email}).toArray(function(err,result){
+				if(err){
+					console.log(err)
+				}else{
+					if(result.length>0){
+						if(type==0){
+							//Login
+							if(password==result[0].password){
+								var sessionObject	=	JSON.parse(JSON.stringify(result[0]));
+								delete sessionObject.password;
+								delete sessionObject.unique;
+								req.session.user	=	sessionObject;
+								res.redirect('/courses');
+							}else{
+								res.render('message',{
+									pageInfo: fetchPageInfo('message',''),
+									message: "The password you have provided is incorrect. Try logging in again by clicking <a href=\"https://mobatec.azurewebsites.net/courses-login\">here</a><br>&nbsp<br>Kind regards,<br>The Mobatec Team"
+								});
+							}
+							client.close();
+						}else{
+							//Forgot password
+							var mailOptions = {
+								from: '"Mobatec Cloud" <admin@mobatec.cloud>',
+								to: email.toLowerCase(),
+								subject: 'Mobatec Modeller Online Course Password Reset',
+								html: "Hello,<br>To reset your password for Mobatec Modeller Online Course material please click"
+								+" <a href='https://mobatec.azurewebsites.net/course-register/"+result[0].unique+"''>here</a>. <br>"
+								+"Kind regards,<br>The Mobatec Team"
+							};
+
+							transporter.sendMail(mailOptions, (error, info) => {
+								if (error) {
+									return console.log(error);
+								}
+							});
+							res.render('message',{
+								pageInfo: fetchPageInfo('message',''),
+								message: "We have sent you an e-mail with a password reset link.<br>&nbsp<br>Kind regards,<br>The Mobatec Team"
+							});
+							client.close();
+						}
+						
+					}else{
+						res.render('message',{
+							pageInfo: fetchPageInfo('message',''),
+							message: "This e-mail is not registered to view Mobatec Modeller online course material.<br>&nbsp<br>Kind regards,<br>The Mobatec Team"
+						});
+						client.close();
+					}
+				}
+			});
+		}
+	});
+});
+
+server.get('/courses-register/:id',function(req,res){
+	res.render('courses-register',{
+		pageInfo: fetchPageInfo('courses-register',''),
+		id: 			req.params.id
+	});
+});
+
+server.post('/courses-register',function(req,res){
+	var id				=	req.body.id;
+	var password	=	hashString(req.body.password);
+	mongoClient.connect(url,{useUnifiedTopology: true},function(err,client){
+		if(err){
+			console.log(err)
+		}else{
+			var collection	=	client.db('MobaHub').collection('Courses');
+			collection.find({unique:id}).toArray(function(err,result){
+				if(err){
+					console.log(err)
+				}else{
+					if(result.length>0){
+						var setObj	=	{ $set: {password:password}};
+						collection.updateOne({unique:id},setObj, (err , collection) => {
+							if(err){
+								console.log(err)
+							}else{
+								res.redirect('/courses-login?message=1');
+							}
+							client.close();
+						});
+					}else{
+						res.render('message',{
+							pageInfo: fetchPageInfo('message',''),
+							message: "Something went wrong with setting your password. Please try again.<br>&nbsp<br>Kind regards,<br>The Mobatec Team"
+						});
+						client.close();
+					}
+				}
+			});
+		}
+	});
+});
+
+server.get('/courses',function(req,res){
+	if(req.session.user){
+		res.render('courses',{
+			pageInfo: fetchPageInfo('courses','')
+		});
+	}else{
+		res.redirect('/courses-login');
+	}
+	
+});
+
+
+
+/*server.get('*',function(req,res){
+	res.redirect("https://mobatec.nl/");
+});*/
