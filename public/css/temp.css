@@ -651,6 +651,11 @@ progress{
     box-shadow: 2px 2px 2px rgb(0, 0, 0, 0.7);
 }
 
+.exercisePart{
+    margin-bottom: 25px;
+    padding-bottom: 25px;
+    border-bottom:2px solid rgb(255,255,255);
+}
 
 .exercisePart .title{
     color: rgb(20,255,20);
@@ -664,9 +669,57 @@ progress{
     text-align: center;
 }
 
+.exercisePart .smallSeparator{
+    width: 50px;
+    height: 2px;
+    background-color: rgb(255,255,255);
+    border-radius: 3px;
+    margin: 15px auto;
+}
+
 .headerButton{
     color: rgb(255,255,255);
     float: right;
+    cursor: pointer;
+    padding-right: 5px;
+    margin-r
+}
+
+.exercisePart .objectives .title{
+    text-align: left;
+    font-size:18px !important;
+    font-weight:500;
+    padding-left: 15px;
+    color: rgb(255,255,255);
+}
+
+.exercisePart .objectives{
+    text-align: center;
+}
+
+
+.exercisePart .videos{
+    text-align: center;
+}
+
+.exercisePart p{
+    text-align: center;
+    margin-top: 20px;
+}
+
+.buttonsWrap{
+    text-align: center;
+}
+
+.buttonsWrap a{
+    display: inline-block;
+    margin: 5px;
+    font-size: 14px;
+    font-weight: 500;
+    color: rgb(255,255,255);
+    background-color: rgba(0,0,0,0.7);
+    padding: 10px;
+    border: 1px solid rgb(20,255,20);
 }
 
 @media only screen and (max-width: 960px) {/*tablet*/

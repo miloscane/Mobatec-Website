@@ -30,12 +30,12 @@
         <div class="background" style="background-image:url('/images/edu-lic.jpeg')"></div>
         <div class="header" id="header">
             <img src="/logos/Mobatec-White-Logo.svg" width="150">
-            <div class="headerButton" data-type="advanced" onclick="coursePick(this)">
+            <!--<div class="headerButton" data-type="advanced" onclick="coursePick(this)">
                 Advanced Course
             </div>
             <div class="headerButton" data-type="intermediate" onclick="coursePick(this)">
                 Intermediate Course
-            </div>
+            </div>-->
             <div class="headerButton" data-type="intro" onclick="coursePick(this)">
                 Introduction Course
             </div>
@@ -88,94 +88,90 @@
                     </div>
                     <div class="title">Course Material</div>
                     <div class="exercisePart">
-                        <div class="title">Exercise I</div>
-                        <div class="subTitle">Simulation of a small flow loop</div>
-                    </div>
-                    <div class="textbox">
-                        <div class="exercisesWrap">
-                            <div class="exerciseWrap">
-                                <div class="exerciseTitle">Exercise I</div>
-                                <div class="exerciseSubtitle">Simulation of a small flow loop</div>
-                                <div class="exerciseInfo">
-                                    <ul>
-                                        <li>Compile and run already made models in Mobatec Modeller</li>
-                                        <li>Customize flow lines position and connection points</li>
-                                        <li>Copy and reuse model parts</li>
-                                    </ul>
-                                    <p>This exercise will teach you how to compile, run & customize prebuilt models in Mobatec Modeller.</p>
-                                </div>
-                                <div class="more" onclick="showExercise(this)">More Info</div>
-                            </div>
-                            <div class="exerciseWrap">
-                                <div class="exerciseTitle">Exercise II</div>
-                                <div class="exerciseSubtitle">Simulation of a closed circulating flow loop</div>
-                                <div class="exerciseInfo">
-                                    <ul>
-                                        <li>Build a flowsheet from library Unit-Models</li>
-                                        <li>Input parameter values using Initialization Routines and initialize systems</li>
-                                        <li>Run a real time dynamic simulation in Mobatec Modeller</li>
-                                        <li>Handle results</li>
-                                    </ul>
-                                    <p>This tutorial will teach you how build and initialise a flowsheet using library models. How to make your model transparent using value displays and run real time process simulations.</p>
-                                </div>
-                                <div class="more" onclick="showExercise(this)">More Info</div>
-                            </div>
-                            <div class="exerciseWrap">
-                                <div class="exerciseTitle">Exercise III</div>
-                                <div class="exerciseSubtitle">Modelling & Simulation of a Buffer Tank</div>
-                                <div class="exerciseInfo">
-                                    <ul>
-                                        <li>Build a model from scratch</li>
-                                        <li>Write equations and add them to your model</li>
-                                        <li>Result tracking</li>
-                                        <li>Dynamic parameter tracking and result visualization</li>
-                                    </ul>
-                                    <p>This tutorial will teach you how build your first model from scratch, perform Degrees of Freedom (DOF) analysis, and understand how to get consistent set of initial conditions every time.</p>
-                                </div>
-                                <div class="more" onclick="showExercise(this)">More Info</div>
-                            </div>
-                            <div class="exerciseWrap">
-                                <div class="exerciseTitle">Exercise IV</div>
-                                <div class="exerciseSubtitle">Modelling & Simulation of a Continuous Stirred Tank Reactor (CSTR)</div>
-                                <div class="exerciseInfo">
-                                    <ul>
-                                        <li>Global parameters</li>
-                                        <li>Modelling of discontinuities</li>
-                                        <li>Modelling chemical reactions</li>
-                                        <li>Plotting the results</li>
-                                        <li>Making a user interface (adding buttons)</li>
-                                    </ul>
-                                    <p>This tutorial will teach you to add reactions and make reactor models from scratch. How to use global parameters feature and model discontinuities. How to make dynamic plots and make use of button objects.</p>
-                                </div>
-                                <div class="more" onclick="showExercise(this)">More Info</div>
-                            </div>
-                            <div class="exerciseWrap">
-                                <div class="exerciseTitle">Exercise V</div>
-                                <div class="exerciseSubtitle">Modelling and Simulation of a Non-Isothermal Continuous Stirred Tank Reactor with Cooling Jacket</div>
-                                <div class="exerciseInfo">
-                                    <ul>
-                                        <li>Energy Balance</li>
-                                        <li>Thermodynamics and special functions</li>
-                                        <li>Multi-level hierarchical models</li>
-                                        <li>Connect variables in hierarchical models</li>
-                                        <li>Saving simulation results</li>
-                                    </ul>
-                                    <p>This tutorial will teach you how energy balances are generated. How to make use of thermodynamic database property calculations. How to make composite multi-layer models and how to communicate parameters & variable values between different model layers. How to import current simulation state as initial conditions.</p>
-                                </div>
-                                <div class="more" onclick="showExercise(this)">More Info</div>
+                        <div class="title">Day I</div>
+                        <div class="smallSeparator"></div>
+                        <div class="buttonsWrap">
+                            <a href="/downloads/documents/Introduction-Exercise-1.pdf" class="downloadButton" download>Download Exercise I PDF</a>
+                            <a href="/downloads/documents/Introduction-Exercise-2.pdf" class="downloadButton" download>Download Exercise II PDF</a>
+                        </div>
+                        <p>In this part, you will learn about Mobatec online Courses layout and get yourself familiarised with the detailed schedule of the Inroductionary course. You will get familiarised with Mobatec Modeller modelling environment getting to know its basic layout as well as learn about modelling environment options and features in general.</p>
+                        <div class="videos">
+                            <div class="videoWrap">
+                                <video width="1280" controls>
+                                    <source src="/videos/Courses/Intro/Day1-Part-1.mp4" type="video/mp4">
+                                    Your browser does not support the video tag.
+                                </video>
                             </div>
                         </div>
-                        <script>
-                            function showExercise(elem){
-                                if(elem.parentElement.classList.contains("exerciseActive")){
-                                    elem.parentElement.classList.remove("exerciseActive");
-                                    elem.innerHTML  =   "More Info";
-                                }else{
-                                    elem.parentElement.classList.add("exerciseActive");
-                                    elem.innerHTML  =   "Close";
-                                }
-                            }
-                        </script>
+                        <p>In this part, you will learn about the building blocks of any model in Mobatec Modeller (the so-called model building elements). You will also learn about model decomposition methodology and learn about (1) Physical topology, (2) Species topology & (3) Equation topology the three parts of any Mobatec Modeller model.</p>
+                        <div class="videos">
+                            <div class="videoWrap">
+                                <video width="1280" controls>
+                                    <source src="/videos/Courses/Intro/Day1-Part-2.mp4" type="video/mp4">
+                                    Your browser does not support the video tag.
+                                </video>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="exercisePart">
+                        <div class="title">Day II</div>
+                        <div class="smallSeparator"></div>
+                        <div class="buttonsWrap">
+                            <a href="/downloads/documents/Introduction-Exercise-3.pdf" class="downloadButton" download>Download Exercise III PDF</a>
+                        </div>
+                        <p>In this part, you will start learning real equation-based modelling using the "Buffer Tank" model example, where you will learn how mass balances are automatically generated in Mobetec Modeller.</p>
+                        <div class="videos">
+                            <div class="videoWrap">
+                                <video width="1280" controls>
+                                    <source src="/videos/Courses/Intro/Day2-Part-1.mp4" type="video/mp4">
+                                    Your browser does not support the video tag.
+                                </video>
+                            </div>
+                        </div>
+                        <p>In this part, you will learn how to make well-posed systems of equations and well-posed initial value problems (consistent set of initial conditions). You will learn how to perform Degrees of Freedom (DoF) as well as Initial Condition (IC) analysis. You will also learn about features of Mobatec Modeller that will help you greatly in this essential stage of the model building process. </p>
+                        <div class="videos">
+                            <div class="videoWrap">
+                                <video width="1280" controls>
+                                    <source src="/videos/Courses/Intro/Day2-Part-2.mp4" type="video/mp4">
+                                    Your browser does not support the video tag.
+                                </video>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="exercisePart">
+                        <div class="title">Day III</div>
+                        <div class="smallSeparator"></div>
+                        <div class="buttonsWrap">
+                            <a href="/downloads/documents/Introduction-Exercise-4.pdf" class="downloadButton" download>Download Exercise IV PDF</a>
+                            <a href="/downloads/documents/Introduction-Exercise-5.pdf" class="downloadButton" download>Download Exercise V PDF</a>
+                        </div>
+                        <p>In this part, you will learn further on Initial Conditions (IC) definition in Mobatec Modeller and how the software will help you to diagnose if you have defined a consistent set of initial conditions every time.</p>
+                        <div class="videos">
+                            <div class="videoWrap">
+                                <video width="1280" controls>
+                                    <source src="/videos/Courses/Intro/Day3-Part-1.mp4" type="video/mp4">
+                                    Your browser does not support the video tag.
+                                </video>
+                            </div>
+                        </div>
+                        <p>In this part, you will learn about different kinds of discontinuities and how to model them by using IF or more complex nested IF blocks in Mobatec Modeller.</p>
+                        <div class="videos">
+                            <div class="videoWrap">
+                                <video width="1280" controls>
+                                    <source src="/videos/Courses/Intro/Day3-Part-2.mp4" type="video/mp4">
+                                    Your browser does not support the video tag.
+                                </video>
+                            </div>
+                        </div>
+                        <p>In this part, you will learn how to add reactions to your systems and how systems energy balance automatic generation is performed. You will also learn some tips and tricks for fast model convergence. </p>
+                        <div class="videos">
+                            <div class="videoWrap">
+                                <video width="1280" controls>
+                                    <source src="/videos/Courses/Intro/Day3-Part-3.mp4" type="video/mp4">
+                                    Your browser does not support the video tag.
+                                </video>
+                            </div>
+                        </div>
                     </div>
                     
                 </div>
