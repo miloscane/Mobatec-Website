@@ -826,7 +826,7 @@ server.post('/modeller-login',function(req,res){
 });
 
 
-/*var emailsToAdd 	=	["miloscane@gmail.com","milos@mobatec.nl","milos.ivankovic@mobatec.nl"];
+/*var emailsToAdd 	=	["milos@mobatec.cloud"];
 var level					=	10;
 function courseMailSend(item, index) {
 	 var mailOptions = {
@@ -834,7 +834,7 @@ function courseMailSend(item, index) {
 			to: item.email.toLowerCase(),
 			subject: 'Welcome to Mobatec Modeller Online Courses',
 			html: "Hello,<br>You have been granted access to Mobatec Modeller Online Course material.<br>"
-			+" Please click <a href='https://mobatec.azurewebsites.net/course-register/"+item.unique+"''>here</a>"
+			+" Please click <a href='https://mobatec.azurewebsites.net/courses-register/"+item.unique+"''>here</a>"
 			+" to set a password for the online platform. <br>"
 			+"Kind regards,<br>The Mobatec Team"
 		};
@@ -928,7 +928,7 @@ server.post('/courses-login',function(req,res){
 								to: email.toLowerCase(),
 								subject: 'Mobatec Modeller Online Course Password Reset',
 								html: "Hello,<br>To reset your password for Mobatec Modeller Online Course material please click"
-								+" <a href='https://mobatec.azurewebsites.net/course-register/"+result[0].unique+"''>here</a>. <br>"
+								+" <a href='https://mobatec.azurewebsites.net/courses-register/"+result[0].unique+"''>here</a>. <br>"
 								+"Kind regards,<br>The Mobatec Team"
 							};
 
