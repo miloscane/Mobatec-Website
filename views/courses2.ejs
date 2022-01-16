@@ -357,15 +357,28 @@
 
             function navigateTo(elem){
                 if(document.getElementById(elem.dataset.elem)){
-                    var courseName  =   elem.parentElement.parentElement.dataset.course;
-                    var contents = document.getElementsByClassName("content");
-                    for(var i=0;i<contents.length;i++){
-                        if(contents[i].dataset.type==courseName){
-                            contents[i].style.display="block";
-                        }else{
-                            contents[i].style.display="none";
+                    if(elem.classList.contains('subTitle')){
+                        var courseName  =   elem.parentElement.parentElement.dataset.course;
+                        var contents = document.getElementsByClassName("content");
+                        for(var i=0;i<contents.length;i++){
+                            if(contents[i].dataset.type==courseName){
+                                contents[i].style.display="block";
+                            }else{
+                                contents[i].style.display="none";
+                            }
+                        }
+                    }else if(elem.classList.contains('title')){
+                        var courseName  =   elem.parentElement.dataset.course;
+                        var contents = document.getElementsByClassName("content");
+                        for(var i=0;i<contents.length;i++){
+                            if(contents[i].dataset.type==courseName){
+                                contents[i].style.display="block";
+                            }else{
+                                contents[i].style.display="none";
+                            }
                         }
                     }
+                    
                     document.getElementById(elem.dataset.elem).scrollIntoView({
                         behavior: "smooth", // or "auto" or "instant"
                         block: "start" // or "end"
