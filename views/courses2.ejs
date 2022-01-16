@@ -1,0 +1,378 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <title><%=pageInfo.title%></title>
+        <meta name="description" content="<%=pageInfo.description%>">
+        <meta name="theme-color" content="#142a40">
+        <meta name="msapplication-navbutton-color" content="#142a40">
+        <meta name="apple-mobile-web-app-status-bar-style" content="#142a40">
+        <link href="/css/temp.css?ver=<%=pageInfo.fileVersion%>" rel="stylesheet"><!--BRISI OVO U LIVE-->
+        <!--<link href="/html-modules/minified/style.min.css?ver=<%=pageInfo.fileVersion%>" rel="stylesheet">-->
+
+        <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+        <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+        <!--[if lt IE 9]>
+          <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
+          <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+        <![endif]-->
+        <link rel="shortcut icon" href="/favicon.png" type="image/x-icon" />
+        <meta property="og:title" content="<%=pageInfo.title%>" />
+        <meta property="og:type" content="website" />
+        <meta property="og:url" content="<%=pageInfo.url%>" />
+        <meta property="og:site_name" content="<%=pageInfo.siteName%>" />
+        <meta property="og:description" content="<%=pageInfo.description%>" />
+        <meta property="og:image" content="<%=pageInfo.pageImage%>" />
+    </head>
+    <body>
+        <div class="background" style="background-image:url('/images/edu-lic.jpeg')"></div>
+        <div class="header" id="header">
+            <img src="/logos/Mobatec-White-Logo.svg" width="150" style="float: right">
+        </div>
+        <div id="navigation">
+            <div class="courseName" data-name="intro" onclick="courseClick(this)">Introduction Course</div>
+            <div class="courseNavigation" data-course="intro" style="display:none">
+                <div class="title" onclick="navigateTo(this)" data-elem="introduction">Introduction</div>
+                <div class="title" onclick="dayClick(this)" data-day="1">Day 1</div>
+                <div class="subItems" style="display:none">
+                    <div class="subTitle" onclick="navigateTo(this)" data-elem="day1video1">Video 1</div>
+                    <div class="subTitle" onclick="navigateTo(this)" data-elem="day1video2">Video 2</div>
+                    <div class="subTitle" onclick="navigateTo(this)" data-elem="day1handbook">Mobatec Modeller Handbook</div>
+                    <div class="subTitle" onclick="navigateTo(this)" data-elem="day1exercise1">Exercise 1</div>
+                    <div class="subTitle" onclick="navigateTo(this)" data-elem="day1exercise2">Exercise 2</div>
+                </div>
+                <div class="title" onclick="dayClick(this)" data-day="2">Day 2</div>
+                <div class="subItems" style="display:none">
+                    <div class="subTitle" onclick="navigateTo(this)" data-elem="day2video1">Video 1</div>
+                    <div class="subTitle" onclick="navigateTo(this)" data-elem="day2video2">Video 2</div>
+                    <div class="subTitle" onclick="navigateTo(this)" data-elem="day2exercise3">Exercise 3</div>
+                </div>
+                <div class="title" onclick="dayClick(this)" data-day="3">Day 3</div>
+                <div class="subItems" style="display:none">
+                    <div class="subTitle" onclick="navigateTo(this)" data-elem="day3video1">Video 1</div>
+                    <div class="subTitle" onclick="navigateTo(this)" data-elem="day3video2">Video 2</div>
+                    <div class="subTitle" onclick="navigateTo(this)" data-elem="day3video3">Video 3</div>
+                    <div class="subTitle" onclick="navigateTo(this)" data-elem="day3exercise4">Exercise 4</div>
+                    <div class="subTitle" onclick="navigateTo(this)" data-elem="day3exercise5">Exercise 5</div>
+                </div>
+            </div>
+            <div class="courseSeparator"></div>
+            <div class="courseName" data-name="intermediate" onclick="courseClick(this)">Intermediate Course</div>
+            <div class="courseNavigation" data-course="intermediate" style="display:none">
+                <div class="title">You don't have access to this part</div>
+            </div>
+            <div class="courseSeparator"></div>
+            <div class="courseName" data-name="advanced" onclick="courseClick(this)">Advanced Course</div>
+            <div class="courseNavigation" data-course="advanced" style="display:none">
+                <div class="title">You don't have access to this part</div>
+            </div>
+        </div>
+        <div class="content" data-type="intro" style="display:block;">
+            <div style="text-align:center;">
+                <img src="/logos/Mobatec-Modeller-White.svg" width="200">
+            </div>
+            <div class="formWrapper" style="margin-left:250px">
+                <div class="intro">
+                    <div class="bigTitle">Introduction to Process Modelling & Simulation</div>
+                    <div class="bigSubtitle">A self paced course with pre-recorded sessions</div>
+                </div>
+                <div class="bottomWrap">
+                    <div class="left"></div>
+                    <div class="middle" style="background: linear-gradient(0deg, rgba(0,0,0,0), rgba(0,0,0,0.5) );"></div>
+                    <div class="right"></div>
+                </div>
+                <div class="topWrap">
+                    <div class="left"></div>
+                    <div class="middle"></div>
+                    <div class="right"></div>
+                </div>
+                <div class="form">
+                    <div style="position:relative"><div class="scrollAnchor" id="introduction"></div></div>
+                    <div class="title">What this course covers:</div>
+                    <ul>
+                        <li>Introduction to <span class="green">Mobatec Modeller</span></li>
+                        <li><span class="green">Flowsheeting</span> & Automatic <span class="green">Initialization</span> of library unit operation models</li>
+                        <li>Building equation based models <span class="green">from scratch</span></li>
+                        <li><span class="green">Well-posed</span> models - Degrees of freedom analysis</li>
+                        <li>Initial Value Problem - Consistent set of <span class="green">Initial Conditions</span></li>
+                    </ul>
+                    <div class="title">Course Structure:</div>
+                    <div class="textbox">
+                        <p>This is a <span class="green">do-it-yourself online</span> Course that consists of <span class="green">5 exercises</span> which will take you <span class="green">2 to 6 hours</span> to work through.</p>
+                        <p>The first two exercises are "model-user" exercises, where you learn the basics of working with Mobatec Modeller. The third, fourth and fifth are "model developer" exercises, where you will learn how to build models completely <span class="green">from scratch</span>.</p>
+                    </div>
+                    <div class="title">Presented by:</div>
+                    <div class="textbox presentor">
+                        <div class="title">PDEng Vladimir Obradovic</div>
+                        <div class="subtitle">Senior Model Engineer and Modelling Consultant</div>
+                        <div class="text">
+                            <p><img class="presentorImage" src="/images/Vladimir-Obradovic.jpeg">Graduated as a Chemical Engineer at the Belgrade University, Faculty of Technology and Metallurgy. Immediately Vladimir decided to extend his knowledge and participated and succesfully concluded the Professional Doctorate in Engineering at the Technical University of Eindhoven, with focus to Multi-Phase Reactor modelling.<br>&nbsp;<br>A passion for chemical engineering and with that the design of “the real” dynamic tooling to simulate and build the best possible plants. “Give me the problem I will create the solution” is what best describes Vladimir.</p>
+                        </div>
+                    </div>
+                    <div class="title">Course Material</div>
+                    <div class="exercisePart">
+                        <div style="position:relative"><div class="scrollAnchor" id="day1video1"></div></div>
+                        <div class="title">Introduction Course Day I</div>
+                        <div class="smallSeparator"></div>
+                        <p>In this <span>Introduction</span> you will learn about the layout and schedule of the Mobatec Online Course “<span>Introduction to Process Modelling & Simulation</span>”. You will get familiarised with the Mobatec Modeller modelling environment, getting to know its basic layout as well as learning about the modelling environment options and features in general.</p>
+                        <div class="videos">
+                            <div class="videoWrap">
+                                <video width="1280" controls poster="/images/Poster1.jpg">
+                                    <source src="/videos/Courses/Intro/Day1-Part-1.mp4" type="video/mp4">
+                                    Your browser does not support the video tag.
+                                </video>
+                            </div>
+                        </div>
+                        <div style="position:relative"><div class="scrollAnchor" id="day1video2"></div></div>
+                        <p>Next, you will learn about the <span>building blocks</span> of any model in Mobatec Modeller (the so-called model building elements). You will also learn about model <span>decomposition methodology</span> and learn about (1) <span>Physical topology</span>, (2) <span>Species topology</span> & (3) <span>Equation topology</span> the three parts of any Mobatec Modeller model.</p>
+                        <div class="videos">
+                            <div class="videoWrap">
+                                <video width="1280" controls>
+                                    <source src="/videos/Courses/Intro/Day1-Part-2.mp4" type="video/mp4">
+                                    Your browser does not support the video tag.
+                                </video>
+                            </div>
+                        </div>
+                        <div style="position:relative"><div class="scrollAnchor" id="day1handbook"></div></div>
+                        <p>Now it’s time to get started with the exercises. As said, this is a this is a <span>do-it-yourself</span> course that consists of 5 exercises which will each take you 2 to 6 hours to work through.<br>&nbsp;<br> The first two exercises are "model-user" exercises, where you learn the basics of working with Mobatec Modeller.</p>
+                        <div class="buttonsWrap">
+                            <a href="/downloads/documents/Mobatec-Modeller-Handbook.pdf" class="downloadButton" download>Download Handbook PDF</a>
+                        </div>
+                        <div style="position:relative"><div class="scrollAnchor" id="day1exercise1"></div></div>
+                        <div class="titleEx">Exercise I</div>
+                        <div class="subTitle">Simulation of a small flow loop</div>
+                        <ul>
+                            <li>Compile and run already made models in Mobatec Modeller</li>
+                            <li>Customize flow lines position and connection points</li>
+                            <li>Copy and reuse model parts</li>
+                        </ul>
+                        <p>This exercise will teach you how to compile, run & customize prebuilt models in Mobatec Modeller.</p>
+                        <div class="buttonsWrap">
+                            <a href="/downloads/documents/Introduction-Exercise-1.pdf" class="downloadButton" download>Download Exercise I PDF</a>
+                        </div>
+                        <div style="position:relative"><div class="scrollAnchor" id="day1exercise2"></div></div>
+                        <div class="titleEx">Exercise II</div>
+                        <div class="subTitle">Simulation of a closed circulating flow loop</div>
+                        <ul>
+                            <li>Build a flowsheet from library Unit-Models</li>
+                            <li>Input parameter values using Initialization Routines and initialize systems</li>
+                            <li>Run a real time dynamic simulation in Mobatec Modeller</li>
+                            <li>handle results</li>
+                        </ul>
+                        <p>This tutorial will teach you how build and initialize a flowsheet using library models. How to make your model transparent using value displays and run real time process simulations.</p>
+                        <div class="buttonsWrap">
+                            <a href="/downloads/documents/Introduction-Exercise-2.pdf" class="downloadButton" download>Download Exercise II PDF</a>
+                        </div>
+                    </div>
+                    <div class="exercisePart">
+                        <div style="position:relative"><div class="scrollAnchor" id="day2video1"></div></div>
+                        <div class="title">Introduction Course Day II</div>
+                        <div class="smallSeparator"></div>
+                        <p>In this part, you will start learning <span>real equation-based modelling</span> using the "Buffer Tank" model example, where you will learn how <span>mass balances</span> are <span>automatically generated</span> in Mobatec Modeller.</p>
+                        <div class="videos">
+                            <div class="videoWrap">
+                                <video width="1280" controls poster="/images/Poster2.jpg">
+                                    <source src="/videos/Courses/Intro/Day2-Part-1.mp4" type="video/mp4">
+                                    Your browser does not support the video tag.
+                                </video>
+                            </div>
+                        </div>
+                        <div style="position:relative"><div class="scrollAnchor" id="day2video2"></div></div>
+                        <p>In the next video, you will learn how to make <span>well-posed systems</span> of equations and well-posed <span>initial value problems</span> (consistent set of initial conditions). You will learn how <span>to perform Degrees of Freedom</span> (DoF) as well as <span>Initial Condition</span> (IC) analysis. You will also learn about features of Mobatec Modeller that will help you greatly in this essential stage of the model building process.</p>
+                        <div class="videos">
+                            <div class="videoWrap">
+                                <video width="1280" controls>
+                                    <source src="/videos/Courses/Intro/Day2-Part-2.mp4" type="video/mp4">
+                                    Your browser does not support the video tag.
+                                </video>
+                            </div>
+                        </div>
+                        <p>Let’s start with some real equation-based modelling!</p>
+                        <div style="position:relative"><div class="scrollAnchor" id="day2exercise3"></div></div>
+                        <div class="titleEx">Exercise III</div>
+                        <div class="subTitle">Modelling & Simulation of a Buffer Tank</div>
+                        <ul>
+                            <li>Build a model from scratch</li>
+                            <li>Write equations and add them to your model</li>
+                            <li>Result tracking</li>
+                            <li>Dynamic parameter tracking and result visualization</li>
+                        </ul>
+                        <p>This tutorial will teach you how build your first model from scratch, perform Degrees of Freedom (DOF) analysis, and understand how to get consistent set of initial conditions every time.</p>
+                        <div class="buttonsWrap">
+                            <a href="/downloads/documents/Introduction-Exercise-3.pdf" class="downloadButton" download>Download Exercise III PDF</a>
+                        </div>
+                    </div>
+                    <div class="exercisePart">
+                        <div style="position:relative"><div class="scrollAnchor" id="day3video1"></div></div>
+                        <div class="title">Introduction Course Day III</div>
+                        <div class="smallSeparator"></div>
+                        <p>This is the 3<sup>rd</sup> and final session of our Introduction to Process Modelling Course. You will learn more about <span>Initial Conditions</span> (IC) definition in Mobatec Modeller and how the software will help you to diagnose if you have defined a consistent set of initial conditions every time.</p>
+                        <div class="videos">
+                            <div class="videoWrap">
+                                <video width="1280" controls poster="/images/Poster3.jpg">
+                                    <source src="/videos/Courses/Intro/Day3-Part-1.mp4" type="video/mp4">
+                                    Your browser does not support the video tag.
+                                </video>
+                            </div>
+                        </div>
+                        <div style="position:relative"><div class="scrollAnchor" id="day3video2"></div></div>
+                        Next, you will learn about different kinds of <span>discontinuities</span> and how to model them by using <span>IF/ELSE</span> or more complex <span>nested IF/ELSE</span> blocks in Mobatec Modeller.
+                        <div class="videos">
+                            <div class="videoWrap">
+                                <video width="1280" controls>
+                                    <source src="/videos/Courses/Intro/Day3-Part-2.mp4" type="video/mp4">
+                                    Your browser does not support the video tag.
+                                </video>
+                            </div>
+                        </div>
+                        <div style="position:relative"><div class="scrollAnchor" id="day3video3"></div></div>
+                        <p>In the last video of this Introduction Course, you will learn how to add <span>reactions</span> to your systems and how systems <span>energy balance automatic generation</span> is performed. You will also learn some tips and tricks for <span>fast model convergence</span>.</p>
+                        <div class="videos">
+                            <div class="videoWrap">
+                                <video width="1280" controls>
+                                    <source src="/videos/Courses/Intro/Day3-Part-3.mp4" type="video/mp4">
+                                    Your browser does not support the video tag.
+                                </video>
+                            </div>
+                        </div>
+                        <div style="position:relative"><div class="scrollAnchor" id="day3exercise4"></div></div>
+                        <div class="titleEx">Exercise IV</div>
+                        <div class="subTitle">Modelling & Simulation of a Continuous Stirred Tank Reactor (CSTR)</div>
+                        <ul>
+                            <li>Global parameter</li>
+                            <li>Modelling of discontinuities</li>
+                            <li>Modelling chemical reactions</li>
+                            <li>Plotting the results</li>
+                            <li>Making a user interface (adding buttons)</li>
+                        </ul>
+                        <p>This tutorial teaches you to add reactions and make reactor models from scratch. How to use global parameters feature and model discontinuities. How to make dynamic plots and make use of button objects.</p>
+                        <div class="buttonsWrap">
+                            <a href="/downloads/documents/Introduction-Exercise-4.pdf" class="downloadButton" download>Download Exercise IV PDF</a>
+                        </div>
+                        <div style="position:relative"><div class="scrollAnchor" id="day3exercise5"></div></div>
+                        <div class="titleEx">Exercise V</div>
+                        <div class="subTitle">Modelling and Simulation of a Non-Isothermal Continuous Stirred Tank Reactor with Cooling Jacket</div>
+                        <ul>
+                            <li>Energy Balance</li>
+                            <li>Thermodynamics and special functions</li>
+                            <li>Multi-level hierarchical models</li>
+                            <li>Connect variables in hierarchical models</li>
+                            <li>Saving simulation results</li>
+                        </ul>
+                        <p>This tutorial teaches you how energy balances are generated. How to make use of thermodynamic database property calculations. How to make composite multi-layer models and how to communicate parameters & variable values between different model layers. How to import current simulation state as initial conditions.</p>
+                        <div class="buttonsWrap">
+                            <a href="/downloads/documents/Introduction-Exercise-5.pdf" class="downloadButton" download>Download Exercise V PDF</a>
+                        </div>
+                        <p>Good luck with all the exercises! We hope you learned a lot!</p>
+                        <p>A <span>Mobatec certificate</span> will be awarded to anyone who completes the course, by sending us the requested model file. The certificate can be <span>validated</span> on our website and shared on social networks like <span>LinkedIN</span>.</p>
+                    </div>
+                    
+                </div>
+            </div>
+        </div>
+        <div class="content" data-type="intermediate" style="display:none">
+            <div style="text-align:center;">
+                <img src="/logos/Mobatec-Modeller-White.svg" width="200">
+            </div>
+            <div class="formWrapper"  style="margin-left:250px">
+                <div class="intro">
+                    <div class="bigTitle">Intermediate Process Modelling & Simulation Course</div>
+                    <div class="bigSubtitle">A self paced course with pre-recorded sessions</div>
+                </div>
+                <div class="bottomWrap">
+                    <div class="left"></div>
+                    <div class="middle" style="background: linear-gradient(0deg, rgba(0,0,0,0), rgba(0,0,0,0.5) );"></div>
+                    <div class="right"></div>
+                </div>
+                <div class="topWrap">
+                    <div class="left"></div>
+                    <div class="middle"></div>
+                    <div class="right"></div>
+                </div>
+                <div class="form"></div>
+            </div>
+        </div>
+        <div class="content" data-type="advanced" style="display:none">
+            <div style="text-align:center;">
+                <img src="/logos/Mobatec-Modeller-White.svg" width="200">
+            </div>
+            <div class="formWrapper" style="margin-left:250px">
+                <div class="intro">
+                    <div class="bigTitle">Advanced Process Modelling & Simulation Course</div>
+                    <div class="bigSubtitle">A self paced course with pre-recorded sessions</div>
+                </div>
+                <div class="bottomWrap">
+                    <div class="left"></div>
+                    <div class="middle" style="background: linear-gradient(0deg, rgba(0,0,0,0), rgba(0,0,0,0.5) );"></div>
+                    <div class="right"></div>
+                </div>
+                <div class="topWrap">
+                    <div class="left"></div>
+                    <div class="middle"></div>
+                    <div class="right"></div>
+                </div>
+                <div class="form"></div>
+            </div>
+        </div>
+        <div class="footer">
+            Copyright &#169; 2022, Mobatec<br>KVK: 1408 4360<br>BTW: NL 8142.56.041.B01
+        </div>
+        <script>
+            function courseClick(elem){
+                var courses = document.getElementById("navigation").getElementsByClassName("courseNavigation");
+                for(var i=0;i<courses.length;i++){
+                    if(elem.dataset.name==courses[i].dataset.course){
+                        if(courses[i].style.display=="none"){
+                            courses[i].style.display="block";
+                        }else{
+                            courses[i].style.display="none";
+                        }
+                        break;
+                    }
+                }
+
+                var contents = document.getElementsByClassName("content");
+                for(var i=0;i<contents.length;i++){
+                    if(contents[i].dataset.type==elem.dataset.name){
+                        contents[i].style.display="block";
+                    }else{
+                        contents[i].style.display="none";
+                    }
+                }
+            }
+
+            function dayClick(elem){
+                var menu    =   elem.nextElementSibling;
+                if(menu.classList.contains("subItems")){
+                    if(menu.style.display=="none"){
+                        menu.style.display="block";
+                        menu.childNodes[1].click();
+                    }else{
+                        menu.style.display="none";
+                    }    
+                }
+            }
+
+            function navigateTo(elem){
+                if(document.getElementById(elem.dataset.elem)){
+                    var courseName  =   elem.parentElement.parentElement.dataset.course;
+                    var contents = document.getElementsByClassName("content");
+                    for(var i=0;i<contents.length;i++){
+                        if(contents[i].dataset.type==courseName){
+                            contents[i].style.display="block";
+                        }else{
+                            contents[i].style.display="none";
+                        }
+                    }
+                    document.getElementById(elem.dataset.elem).scrollIntoView({
+                        behavior: "smooth", // or "auto" or "instant"
+                        block: "start" // or "end"
+                    });
+                }
+                
+            }
+        </script>
+    </body>
+</html>

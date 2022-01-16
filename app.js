@@ -826,16 +826,16 @@ server.post('/modeller-login',function(req,res){
 });
 
 
-/*var emailsToAdd 	=	["milos1@mobatec.cloud,milos2@mobatec.cloud"];
+/*var emailsToAdd 	=	["milos3@mobatec.cloud","milos4@mobatec.cloud"];
 var level					=	10;
 function courseMailSend(item, index) {
 	 var mailOptions = {
 			from: '"Mobatec Cloud" <admin@mobatec.cloud>',
-			to: item.email.toLowerCase(), //OVDE MOZDA TREBA [INDEX]!!!!
+			to: item.email.toLowerCase(),
 			subject: 'Welcome to Mobatec Modeller Online Courses',
 			html: "Hello,<br>You have been granted access to Mobatec Modeller Online Course material.<br>"
 			+" Please click <a href='https://mobatec.azurewebsites.net/courses-register/"+item.unique+"''>here</a>"
-			+" to set a password for the online platform.<br>&nbsp;<br>The course material can be found <a href='https://mobatec.azurewebsites.net/courses'><b>here</b>.</a><br>"
+			+" to set a password for the online platform.<br>&nbsp;<br>The course material can be found <a href='https://mobatec.azurewebsites.net/courses'><b>here</b></a>.<br>&nbsp;<br>"
 			+"Kind regards,<br>The Mobatec Team"
 		};
 
@@ -893,7 +893,7 @@ server.get('/courses-login',function(req,res){
 });
 
 server.post('/courses-login',function(req,res){
-	var email			=	req.body.email;
+	var email			=	req.body.email.toLowerCase();
 	var password	=	hashString(req.body.password);
 	var type			=	req.body.type;//0-login, 1-forgot password
 	mongoClient.connect(url,{useUnifiedTopology: true},function(err,client){
@@ -1007,7 +1007,16 @@ server.get('/courses',function(req,res){
 	}else{
 		res.redirect('/courses-login');
 	}
-	
+});
+
+server.get('/courses2',function(req,res){ 
+	if(req.session.user){
+		res.render('courses2',{
+			pageInfo: fetchPageInfo('courses2','')
+		});
+	}else{
+		res.redirect('/courses-login');
+	}
 });
 
 

@@ -214,6 +214,7 @@ progress{
     z-index:50;
     text-align:left;
     padding-left:20px;
+    height: 80px;
 }
 
 .footer{
@@ -734,6 +735,69 @@ progress{
     background-color: rgba(0,0,0,0.7);
     padding: 10px;
     border: 1px solid rgb(20,255,20);
+}
+
+#navigation{
+    position: fixed;
+    z-index: 100;
+    left: 0px;
+    top: 80px;
+    bottom: 92px;
+    width: 230px;
+    height: 799px;
+    background-color: rgba(20,42,64,1);
+    color: rgb(255,255,255);
+    padding: 10px;
+}
+
+#navigation .courseName{
+    font-size: 18px;
+    font-weight: 500;
+    cursor: pointer;
+}
+
+#navigation .courseSeparator{
+    width: 90%;
+    height: 2px;
+    background-color: rgb(255,255,255);
+    border-radius: 2px;
+    margin: 15px auto;
+    margin-left: 0;
+}
+
+#navigation .courseNavigation{
+    color: rgb(50,50,50);
+    background-color: rgb(255,255,255);
+    padding: 5px;
+    padding-left: 10px;
+    font-size: 14px;
+}
+
+#navigation .courseNavigation .title{
+    font-weight: 600;
+    padding-bottom: 3px;
+    margin-bottom: 3px;
+    border-bottom: 1px solid rgb(220,220,220);
+    cursor: pointer;
+}
+
+#navigation .courseNavigation .subItems{
+    background-color: rgb(220,220,220);
+    padding-left: 8px;
+    padding-top: 4px;
+    padding-bottom: 4px;
+    margin-top: -3px;
+    font-size: 12px;
+}
+
+#navigation .courseNavigation .subTitle{
+    margin-bottom: 2px;
+    cursor: pointer;
+}
+
+.scrollAnchor{
+    top: -80px;
+    position: relative;
 }
 
 @media only screen and (max-width: 960px) {/*tablet*/
