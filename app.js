@@ -826,16 +826,16 @@ server.post('/modeller-login',function(req,res){
 });
 
 
-/*var emailsToAdd 	=	["milos@mobatec.cloud"];
+/*var emailsToAdd 	=	["milos1@mobatec.cloud,milos2@mobatec.cloud"];
 var level					=	10;
 function courseMailSend(item, index) {
 	 var mailOptions = {
 			from: '"Mobatec Cloud" <admin@mobatec.cloud>',
-			to: item.email.toLowerCase(),
+			to: item.email.toLowerCase(), //OVDE MOZDA TREBA [INDEX]!!!!
 			subject: 'Welcome to Mobatec Modeller Online Courses',
 			html: "Hello,<br>You have been granted access to Mobatec Modeller Online Course material.<br>"
 			+" Please click <a href='https://mobatec.azurewebsites.net/courses-register/"+item.unique+"''>here</a>"
-			+" to set a password for the online platform. <br>"
+			+" to set a password for the online platform.<br>&nbsp;<br>The course material can be found <a href='https://mobatec.azurewebsites.net/courses'><b>here</b>.</a><br>"
 			+"Kind regards,<br>The Mobatec Team"
 		};
 
