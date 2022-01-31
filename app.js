@@ -52,9 +52,8 @@ function hashString(string){
 	return hash
 }
 
-/*console.log(hashString("M0b@tec1"));
-console.log(hashString("M0b@tec2"));
-console.log(hashString("M0b@tecM@@rheeze"));*/
+
+//console.log(hashString("M0b@tec@ct@2"));
 
 
 //PORT Listening
@@ -474,7 +473,7 @@ server.get('/modeller-check/:downloadcode',function(req,res){
 				}else{
 					if(result.length>0){
 						if(result[0].valid){
-							res.download(__dirname+'/public/downloads/Modeller_v4_15850_Setup.exe','Modeller_v4_15850_Setup.exe')
+							res.download(__dirname+'/public/downloads/Modeller_v4_15870_Setup.exe','Modeller_v4_15870_Setup.exe')
 							//res.redirect("https://mobatec.nl/Modeller/getlink.php?bounceback="+encodeURIComponent("https://mobatec.azurewebsites.net/modeller-latest/"+req.params.downloadcode));
 						}else{
 							res.render('message',{
@@ -509,7 +508,7 @@ server.get('/modeller-latest/:downloadcode',function(req,res){
 				}else{
 					if(result.length>0){
 						if(result[0].valid){
-							res.download(__dirname+'/public/downloads/Modeller_v4_15850_Setup.exe','Modeller_v4_15850_Setup.exe')
+							res.download(__dirname+'/public/downloads/Modeller_v4_15870_Setup.exe','Modeller_v4_15870_Setup.exe')
 							//res.redirect("https://mobatec.nl/Modeller/"+req.query.version)
 						}else{
 							res.render('message',{
@@ -826,7 +825,7 @@ server.post('/modeller-login',function(req,res){
 });
 
 
-/*var emailsToAdd 	=	["milos3@mobatec.cloud","milos4@mobatec.cloud"];
+/*var emailsToAdd		=	["o.ahmadov@tue.nl" , "i.arenas.bustos@tue.nl" , "l.barone@tue.nl" , "y.culhacioglu@tue.nl" , "e.p.da.conceicao.amaral@tue.nl" , "s.desovski@tue.nl" , "n.grasmeyer@tue.nl" , "i.karetta@tue.nl" , "g.kormentzas@tue.nl" , "e.oosthuizen@tue.nl" , "c.scarano@tue.nl" , "b.vujovic@tue.nl" , "m.s.akritidis@tue.nl" , "g.alkhansa@tue.nl" , "g.basile@tue.nl" , "j.cirer.pallares@tue.nl" , "n.dalurzo@tue.nl" , "w.w.y.fong@tue.nl" , "h.gupta1@tue.nl" , "c.hatipoglu@tue.nl" , "k.a.jacob@tue.nl" , "d.c.monsalve.sanchez@tue.nl" , "m.l.muller.valerio.durao@tue.nl" , "j.g.h.nijhuis@tue.nl" , "a.unni@tue.nl"];
 var level					=	10;
 function courseMailSend(item, index) {
 	 var mailOptions = {
@@ -867,7 +866,7 @@ mongoClient.connect(url,{useUnifiedTopology: true},function(err,client){
 				var users 	=	[];
 				for(var i=0;i<emailsToAdd.length;i++){
 					var	user	=	{};
-					user.email	=	emailsToAdd[i];
+					user.email	=	emailsToAdd[i].toLowerCase();
 					user.unique = generateId(101);
 					user.level	=	level;
 					users.push(user)
