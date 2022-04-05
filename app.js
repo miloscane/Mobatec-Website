@@ -53,7 +53,7 @@ function hashString(string){
 }
 
 
-//console.log(hashString("M0b@tec@ct@2"));
+//console.log(hashString("M0b@tecL!t0p1"));
 
 
 //PORT Listening
@@ -825,7 +825,7 @@ server.post('/modeller-login',function(req,res){
 });
 
 
-/*var emailsToAdd		=	["o.ahmadov@tue.nl" , "i.arenas.bustos@tue.nl" , "l.barone@tue.nl" , "y.culhacioglu@tue.nl" , "e.p.da.conceicao.amaral@tue.nl" , "s.desovski@tue.nl" , "n.grasmeyer@tue.nl" , "i.karetta@tue.nl" , "g.kormentzas@tue.nl" , "e.oosthuizen@tue.nl" , "c.scarano@tue.nl" , "b.vujovic@tue.nl" , "m.s.akritidis@tue.nl" , "g.alkhansa@tue.nl" , "g.basile@tue.nl" , "j.cirer.pallares@tue.nl" , "n.dalurzo@tue.nl" , "w.w.y.fong@tue.nl" , "h.gupta1@tue.nl" , "c.hatipoglu@tue.nl" , "k.a.jacob@tue.nl" , "d.c.monsalve.sanchez@tue.nl" , "m.l.muller.valerio.durao@tue.nl" , "j.g.h.nijhuis@tue.nl" , "a.unni@tue.nl"];
+/*var emailsToAdd		=	["ahafeez@visionaryfiber.com"];
 var level					=	10;
 function courseMailSend(item, index) {
 	 var mailOptions = {
