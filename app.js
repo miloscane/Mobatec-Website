@@ -825,7 +825,7 @@ server.post('/modeller-login',function(req,res){
 });
 
 
-/*var emailsToAdd		=	["ahafeez@visionaryfiber.com"];
+/*var emailsToAdd		=	["ksenija.kozlovacki@mobatec.nl"];
 var level					=	10;
 function courseMailSend(item, index) {
 	 var mailOptions = {
