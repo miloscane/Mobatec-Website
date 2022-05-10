@@ -36,9 +36,6 @@
         </script>
         <div id="introcourse" class="introcourse">
             <div class="background" style="background-image:url('/images/edu-lic.jpeg')"></div>
-            <div class="header" id="header">
-                <img src="/logos/Mobatec-White-Logo.svg" width="150" style="float: right">
-            </div>
             <div id="navigation" class="coursesNavigation">
                 <div class="courseName" data-name="intro" onclick="courseClick(this)">Introduction Course</div>
                 <div class="courseNavigation" data-course="intro" style="display:none">
@@ -78,10 +75,10 @@
                 </div>
             </div>
             <div class="content" data-type="intro" style="display:block;">
-                <div style="text-align:center;">
-                    <img src="/logos/Mobatec-Modeller-White.svg" width="200" style="margin:0 auto">
-                </div>
                 <div class="formWrapper" style="margin-left:250px">
+                    <div style="text-align:center;">
+                        <img src="/logos/Mobatec-Modeller-White.svg" width="200" style="margin:0 auto">
+                    </div>
                     <div class="intro">
                         <div class="bigTitle">Introduction to Process Modelling & Simulation</div>
                         <div class="bigSubtitle">A self paced course with pre-recorded sessions</div>
@@ -98,6 +95,18 @@
                     </div>
                     <div class="form">
                         <div style="position:relative"><div class="scrollAnchor" id="introduction"></div></div>
+                        <div class="textbox" id="webinar-info"></div>
+                        <script>
+                            if(licenseOver<0){
+                                document.getElementById("webinar-info").innerHTML   =   "Hello "+user.name+", your Mobatec Modeller license expired :("
+                            }else{
+                                document.getElementById("webinar-info").innerHTML   =   "<p>Hello "+user.name+", your Mobatec Modeller <span class='green'>license is active</span> for another "+licenseOver+" days.</p><p>Just type your <span class='green'>email as the Server Logon User Name</span> when connecting to the license server.</p>We hope you complete the course and get your certificate. Good luck!";
+                            }
+                            
+                        </script>
+                        <div class="buttonsWrap">
+                            <a href="/downloads/Modeller_v4_15925_Setup.exe" class="downloadButton" download>Download Mobatec Modeller</a>
+                        </div>
                         <div class="title">What this course covers:</div>
                         <ul>
                             <li>Introduction to <span class="green">Mobatec Modeller</span></li>
