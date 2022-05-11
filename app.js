@@ -549,7 +549,7 @@ server.get('/webinars/verification/:verificationid',function(req,res){
 						if(result[0].valid){
 							res.render('message',{
 								pageInfo: fetchPageInfo('message',''),
-								message: "This e-mail has already been verified"
+								message: "This e-mail has already been verified. You can view the course by clicking <a href='/webinars/watch/introduction-to-process-modelling/"+req.params.verificationid+"' style='color:rgb(20,255,20);font-weight:600;text-decoration:none'>here.</a>"
 							});
 							client.close();
 						}else{
@@ -575,13 +575,14 @@ server.get('/webinars/verification/:verificationid',function(req,res){
 											}else{
 												if(result3.length>0){
 													//do nothing
+													var downloadCode	=	result3[0].downloadcode;
 												}else{
 													var downloadCode 	=	generateId(105);
 													addModellerSubscriber(result[0].email,result[0].name,validationtime,"Webinar",downloadCode)
 												}
 												res.render('message',{
 													pageInfo: fetchPageInfo('message',''),
-													message: "You successfully verified your e-mail and have been <a href='/webinars/watch/introduction-to-process-modelling/"+result[0].validationcode+"'><span class='green'>granted access to Introduction to Process Modelling & Simulation Webinar</span></a>.<br>&nbsp;<br>You have also been granted a <span class='green'>one month license</span> for Mobatec Modeller starting from this time.<br>&nbsp;<br>Good luck with modelling!<div style='margin-top:20px;'><div class='submitButton' onclick='window.location.href=\"/webinars/watch/introduction-to-process-modelling/"+result[0].validationcode+"\"'>Webinar</div></div>"
+													message: "You successfully verified your e-mail and have been <a href='/webinars/watch/introduction-to-process-modelling/"+result[0].validationcode+"'><span class='green'>granted access to Introduction to Process Modelling Course</span></a>.<br>&nbsp;<br>You have also been granted a <span class='green'>one month license</span> for Mobatec Modeller starting from this time.<br>&nbsp;<br>Good luck with modelling!<div style='margin-top:20px;'><div class='submitButton' onclick='window.location.href=\"/webinars/watch/introduction-to-process-modelling/"+result[0].validationcode+"\"'>Go to Course</div></div>"
 												});
 												var mailOptions = {
 													from: '"Mobatec Cloud" <admin@mobatec.cloud>',
@@ -594,7 +595,7 @@ server.get('/webinars/verification/:verificationid',function(req,res){
 														}
 													],
 													html: "Hello "+result[0].name+",<br>Thank you for verifying your e-mail.<br>&nbsp;<br>You can access the "
-													+"webinar <a href=\"https://mobatec.azurewebsites.net/webinars/watch/introduction-to-process-modelling/"+result[0].validationcode+"\">here</a>."
+													+"course <a href=\"https://mobatec.azurewebsites.net/webinars/watch/introduction-to-process-modelling/"+result[0].validationcode+"\">here</a>."
 													+"<br>&nbsp;<br>Your Mobatec Modeller license is "
 													+"active until "+showDate(licenseOver.getTime())+".<br>&nbsp;<br>To use your license go into \"License Options\" and click "
 													+"\"Connect to a license server\". For the license server logon use license.mobatec.nl and for Server Logon User Name use "
@@ -661,9 +662,9 @@ server.post('/introduction-course-registration',function(req,res){
 									from: '"Mobatec Cloud" <admin@mobatec.cloud>',
 									to: email.toLowerCase(),
 									subject: 'Mobatec E-mail Verification',
-									html: "Hello "+result[0].name+",<br>Please click <a href='https://mobatec.azurewebsites.net/webinars/verification/"
+									html: "Hello "+result[0].name+",<br>&nbsp;<br>Please click <a href='https://mobatec.azurewebsites.net/webinars/verification/"
 									+result[0].validationcode+"''>here</a>"
-									+" to verify your e-mail address and gain access to the Introduction to Process Modelling & Simulation webinar.<br>"
+									+" to verify your e-mail address and gain access to the Introduction to Process Modelling Course.<br>&nbsp;<br>"
 									+"Kind regards,<br>The Mobatec Team"
 								};
 
@@ -691,8 +692,8 @@ server.post('/introduction-course-registration',function(req,res){
 										from: '"Mobatec Cloud" <admin@mobatec.cloud>',
 										to: email.toLowerCase(),
 										subject: 'Mobatec E-mail Verification',
-										html: "Hello "+name+",<br>Please click <a href='https://mobatec.azurewebsites.net/webinars/verification/"+registerJson.validationcode+"''>here</a>"
-										+" to verify your e-mail address and gain access to the Introduction to Process Modelling & Simulation webinar.<br>"
+										html: "Hello "+name+",<br>&nbsp;<br>Please click <a href='https://mobatec.azurewebsites.net/webinars/verification/"+registerJson.validationcode+"''>here</a>"
+										+" to verify your e-mail address and gain access to the Introduction to Process Modelling Course.<br>&nbsp;<br>"
 										+"Kind regards,<br>The Mobatec Team"
 									};
 	

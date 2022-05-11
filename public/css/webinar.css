@@ -1028,6 +1028,24 @@ video{
     position: relative;
 }
 
+.purchaseButtonWrap{
+    text-align: center;
+    padding: 10px 5px;
+}
+
+.purchaseButton{
+    display: block;
+    width: 100%;
+    padding: 10px;
+    background-color: rgb(20,255,20);
+}
+
+.purchaseButton a{
+    display: block;
+    color: rgb(20,42,64);
+    text-decoration: none;
+}
+
 @media only screen and (max-width: 960px) {/*tablet*/
     #introcourse .formWrapper{
         width:90%;
