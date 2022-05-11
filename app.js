@@ -655,7 +655,7 @@ server.post('/introduction-course-registration',function(req,res){
 								pageInfo: fetchPageInfo('introduction-webinar',''),
 								email: email,
 								name: name,
-								scroll: scroll
+								scroll: scroll,
 								emaildouble: result[0].valid ? 1 : 2
 							});
 							if(!result[0].valid){
