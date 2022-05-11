@@ -566,7 +566,7 @@ server.get('/webinars/verification/:verificationid',function(req,res){
 											message: "No no :)"
 										});
 									}else if(result2.modifiedCount==1){
-										subscribeToLongflow(result[0].email,result[0].name,result2[0].source);
+										subscribeToLongflow(result[0].email,result[0].name,result[0].source);
 										generateLicense(result[0].email,result[0].name,"Free Intro Course",validationtime,result[0].source);
 										var collection2	=	client.db('MobaHub').collection('Modeller');
 										collection2.find({ $and: [ { email: result[0].email }, { filetype: "subscriber" } ] }).toArray(function(err,result3){
