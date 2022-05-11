@@ -566,8 +566,8 @@ server.get('/webinars/verification/:verificationid',function(req,res){
 											message: "No no :)"
 										});
 									}else if(result2.modifiedCount==1){
-										subscribeToLongflow(result[0].email,result[0].name,"webinar");
-										generateLicense(result[0].email,result[0].name,"webinar",validationtime,"Webinar");
+										subscribeToLongflow(result[0].email,result[0].name,result2[0].source);
+										generateLicense(result[0].email,result[0].name,"Free Intro Course",validationtime,result[0].source);
 										var collection2	=	client.db('MobaHub').collection('Modeller');
 										collection2.find({ $and: [ { email: result[0].email }, { filetype: "subscriber" } ] }).toArray(function(err,result3){
 											if(err){
@@ -638,6 +638,7 @@ server.get('/webinars/verification/:verificationid',function(req,res){
 server.post('/introduction-course-registration',function(req,res){
 	var email	=	req.body.email;
 	var name	=	req.body.name ? req.body.name : "Webinar Subscriber";
+	var sourceW	=	req.body.source ? req.body.source : "Not defined";
 	var scroll	=	Number(req.body.scroll);
 	if(emailIsValid(email)){
 		mongoClient.connect(url,{useUnifiedTopology: true},function(err,client){
@@ -654,7 +655,7 @@ server.post('/introduction-course-registration',function(req,res){
 								pageInfo: fetchPageInfo('introduction-webinar',''),
 								email: email,
 								name: name,
-								scroll: scroll,
+								scroll: scroll
 								emaildouble: result[0].valid ? 1 : 2
 							});
 							if(!result[0].valid){
@@ -681,6 +682,7 @@ server.post('/introduction-course-registration',function(req,res){
 							registerJson.email			=	email.toLowerCase();
 							registerJson.name			=	name;
 							registerJson.validationcode	=	generateId(100);
+							registerJson.source			=	sourceW;
 							registerJson.valid			=	false;
 							registerJson.datetime		=	new Date().getTime();
 							registerJson.showdate		=	showDate(registerJson.datetime);

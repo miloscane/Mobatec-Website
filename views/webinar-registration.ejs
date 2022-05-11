@@ -68,6 +68,13 @@
                                 <div class="inputWrap">
                                     <input type="text" name="name" placeholder="Name" id="name">
                                 </div>
+                                <div class="inputWrap" style="display:none">
+                                    <input type="text" name="source" id="source">
+                                    <script>
+                                        var url =   window.location.href;
+                                        document.getElementById("source").value =   url.split("?source=")[1];
+                                    </script>
+                                </div>
                                 <div class="note">*The provided e-mail address is used for verification purposes and is not shared with third parties. You can unsubscribe from our services at any time by clicking the "Unsubscribe" link in our e-mails or by requesting it directly from us.</div>
                                 <div id="error"></div>
                                 <input type="text" style="display:none" name="scroll" id="scroll">
