@@ -582,7 +582,7 @@ server.get('/webinars/verification/:verificationid',function(req,res){
 												}
 												res.render('message',{
 													pageInfo: fetchPageInfo('message',''),
-													message: "You successfully verified your e-mail and have been <a href='/webinars/watch/introduction-to-process-modelling/"+result[0].validationcode+"'><span class='green'>granted access to Introduction to Process Modelling Course</span></a>.<br>&nbsp;<br>You have also been granted a <span class='green'>one month license</span> for Mobatec Modeller starting from this time.<br>&nbsp;<br>Good luck with modelling!<div style='margin-top:20px;'><div class='submitButton' onclick='window.location.href=\"/webinars/watch/introduction-to-process-modelling/"+result[0].validationcode+"\"'>Go to Course</div></div>"
+													message: "You successfully verified your e-mail and have been <a href='/webinars/watch/introduction-to-process-modelling/"+result[0].validationcode+"'><span class='green'>granted access to Introduction to Process Modelling Course</span></a>.<br>&nbsp;<br>You have also been granted a <span class='green'>one month license</span> for Mobatec Modeller starting from this time.<br>&nbsp;<br>Good luck with modelling!<div style='margin-top:20px;'><div class='submitButton' onclick='window.location.href=\"/webinars/watch/introduction-to-process-modelling/"+result[0].validationcode+"\"'>Go to Course!</div></div>"
 												});
 												var mailOptions = {
 													from: '"Mobatec Cloud" <admin@mobatec.cloud>',
@@ -600,7 +600,7 @@ server.get('/webinars/verification/:verificationid',function(req,res){
 													+"active until "+showDate(licenseOver.getTime())+".<br>&nbsp;<br>To use your license go into \"License Options\" and click "
 													+"\"Connect to a license server\". For the license server logon use license.mobatec.nl and for Server Logon User Name use "
 													+"your email address: "+result[0].email.toLowerCase()+"<br>&nbsp;<br> You can download Mobatec Modeller by clicking on "
-													+"<a href=\"https://mobatec.azurewebsites.net/modeller-check/"+downloadCode+"\">this link.</a><br>&nbsp<br>"
+													+"<a href=\"https://mobatec.azurewebsites.net/modeller-check/"+downloadCode+"\">this link.</a><br>&nbsp;<br>"
 													+"We have also attached a free whitepaper \"Modelling and Simulation in Process Industry\". To view it online click <a href=\"https://www.mobatec.nl/web/downloads/Mobatec_Whitepaper_Succesfully_Apply_Simulation_Models.pdf\">here</a><br>&nbsp;<br>"
 													+"Kind regards,<br>The Mobatec Team"
 												};
