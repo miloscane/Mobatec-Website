@@ -125,10 +125,8 @@
                         </div>
                         <div class="purchaseButtonWrap">
                             <div class="purchaseButton">
-                                <a id="buy1">PURCHASE MOBATEC MODELLER EDUCATIONAL LICENSE FOR 1 YEAR NOW!</a>
-                                <script>
-                                    document.getElementById("buy1").setAttribute("href","https://mobatec.nl/payment/pay.php?name="+encodeURIComponent(user.name)+"&email="+encodeURIComponent(user.email)+"&quantity=1&licensecode=edu&company=null&invoicename=null&address=null&postcode=null&country=null&vat=null")
-                                </script>
+                                <a onclick="document.getElementById('lightbox').style.display='block';" style="cursor: pointer;">PURCHASE MOBATEC MODELLER EDUCATIONAL LICENSE FOR 1 YEAR NOW!</a>
+                               
                             </div>
                         </div>
                         <div class="purchaseButtonWrap differentColor">
@@ -347,10 +345,8 @@
                             </ul>
                             <div class="purchaseButtonWrap">
                                 <div class="purchaseButton">
-                                    <a id="buy3">PURCHASE MOBATEC MODELLER EDUCATIONAL LICENSE FOR 1 YEAR NOW!!</a>
-                                    <script>
-                                        document.getElementById("buy3").setAttribute("href","https://mobatec.nl/payment/pay.php?name="+encodeURIComponent(user.name)+"&email="+encodeURIComponent(user.email)+"&quantity=1&licensecode=edu&company=null&invoicename=null&address=null&postcode=null&country=null&vat=null")
-                                    </script>
+                                    <a onclick="document.getElementById('lightbox').style.display='block';" style="cursor: pointer;">PURCHASE MOBATEC MODELLER EDUCATIONAL LICENSE FOR 1 YEAR NOW!!</a>
+                                    
                                 </div>
                             </div>
                             
@@ -388,10 +384,8 @@
                             </div>
                             <div class="purchaseButtonWrap">
                                 <div class="purchaseButton">
-                                    <a id="buy6">PURCHASE MOBATEC MODELLER EDUCATIONAL LICENSE FOR 1 YEAR NOW!!</a>
-                                    <script>
-                                        document.getElementById("buy6").setAttribute("href","https://mobatec.nl/payment/pay.php?name="+encodeURIComponent(user.name)+"&email="+encodeURIComponent(user.email)+"&quantity=1&licensecode=edu&company=null&invoicename=null&address=null&postcode=null&country=null&vat=null")
-                                    </script>
+                                    <a onclick="document.getElementById('lightbox').style.display='block';" style="cursor: pointer;">PURCHASE MOBATEC MODELLER EDUCATIONAL LICENSE FOR 1 YEAR NOW!!</a>
+                                   
                                 </div>
                             </div>
                             <div class="purchaseButtonWrap differentColor">
@@ -405,6 +399,50 @@
                         </div>
                         
                     </div>
+                </div>
+            </div>
+            <div id="lightbox" onclick="this.style.display='none'">
+                <div class="lightbox-content" onclick="event.stopPropagation()">
+                    <div style="position:relative">
+                        <div class="title">Mobatec Modeller Educational License<br>157&euro;</div>
+                        <ul style="text-align:left">
+                            <li>Become an <span style="color:rgb(20,255,20)">advanced</span> model builder</li>
+                            <li>Truly <span style="color:rgb(20,255,20)">understand</span> your Process Models</li>
+                            <li>Complete <span style="color:rgb(20,255,20)">flexibility</span> on your model definitions</li>
+                            <li><span style="color:rgb(20,255,20)">Impress</span> everybody with your new process modelling knowledge</li>
+                            <li>Your license will include:</li>
+
+                                <ul>
+                                    <li>Modelling, Simulation and Run Time Environment</li>
+                                    <li>Physical Properties Database (Thermodynamics)</li>
+                                    <li>Educational Model Library</li>
+                                    <li>Models limited to non commercial use and supports up to 100 dynamic systems within one model.</li>
+                                </ul>
+                        </ul>
+                        <div class="inputWrap">
+                            <div class="fieldName">Email:</div>
+                            <input type="text" id="email">
+                            <script>document.getElementById("email").value=user.email</script>
+                        </div>
+                        <div class="inputWrap">
+                            <div class="fieldName">Name:</div>
+                            <input type="text" id="name">
+                            <script>document.getElementById("name").value=user.name</script>
+                        </div>
+                        <div class="purchaseButtonWrap">
+                            <div class="purchaseButton">
+                                <a onclick="paynow()" style="cursor: pointer;">Pay</a>
+                            </div>
+                        </div>
+                        <div class="lightboxClose" onclick="document.getElementById('lightbox').style.display='none'">
+                            <img src="https://mobatec.nl/web/wp-content/uploads/2017/11/Close.png">
+                        </div>
+                    </div>
+                    <script>
+                        function paynow(){
+                            window.location.href="https://mobatec.nl/payment/pay.php?name="+encodeURIComponent(document.getElementById('name').value)+"&email="+encodeURIComponent(document.getElementById('email').value)+"&quantity=1&licensecode=edu&company=null&invoicename=null&address=null&postcode=null&country=null&vat=null"
+                        }
+                    </script>
                 </div>
             </div>
             <script>
