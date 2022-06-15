@@ -651,13 +651,18 @@ server.post('/introduction-course-registration',function(req,res){
 						console.log(err)
 					}else{
 						if(result.length>0){
-							res.render('webinar-registration',{
-								pageInfo: fetchPageInfo('introduction-webinar',''),
-								email: email,
-								name: name,
-								scroll: scroll,
-								emaildouble: result[0].valid ? 1 : 2
-							});
+							if(result[0].valid){
+								res.redirect('/webinars/watch/introduction-to-process-modelling/'+result[0].validationcode)
+							}else{
+								res.render('webinar-registration',{
+									pageInfo: fetchPageInfo('introduction-webinar',''),
+									email: email,
+									name: name,
+									scroll: scroll,
+									emaildouble: result[0].valid ? 1 : 2
+								});
+							}
+							
 							if(!result[0].valid){
 								var mailOptions = {
 									from: '"Mobatec Cloud" <admin@mobatec.cloud>',
