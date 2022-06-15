@@ -634,7 +634,7 @@ server.get('/webinars/verification/:verificationid',function(req,res){
 		}
 	});
 });
-
+ 
 server.post('/introduction-course-registration',function(req,res){
 	var email	=	req.body.email;
 	var name	=	req.body.name ? req.body.name : "Webinar Subscriber";
