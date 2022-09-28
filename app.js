@@ -792,6 +792,13 @@ server.get('/modeller-login',function(req,res){
 	});
 });
 
+/*console.log("HE_Demo1");
+console.log(hashString("He@tExch@ng3r1"));
+console.log("HE_Demo2");
+console.log(hashString("He@tExch@ng3r2"));
+console.log("HE_Demo3");
+console.log(hashString("He@tExch@ng3r3"));*/
+
 server.post('/modeller-login',function(req,res){
 	var username	=	req.body.username;
 	var password	=	hashString(req.body.password);
@@ -807,7 +814,12 @@ server.post('/modeller-login',function(req,res){
 					}else{
 						if(result.length>0){
 							if(result[0].password==password){
-								res.redirect(result[0].url+"/vnc_lite.html?password="+result[0].password);
+								if(result[0].version==2){
+									res.redirect(result[0].url);
+								}else{
+									res.redirect(result[0].url+"/vnc_lite.html?password="+result[0].password);
+								}
+								
 							}else{
 								res.render('message',{
 									pageInfo: fetchPageInfo('message',''),
