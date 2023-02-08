@@ -53,9 +53,6 @@ function hashString(string){
 }
 
 
-//console.log(hashString("M0b@tecL!t0p1"));
-
-
 //PORT Listening
 http.listen(process.env.PORT, function(){
   console.log('Server Started');
