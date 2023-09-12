@@ -789,12 +789,17 @@ server.get('/modeller-login',function(req,res){
 	});
 });
 
+//console.log("Learning1");
+//console.log(hashString("L3@rn1ng1"));
+
 /*console.log("Learning2");
 console.log(hashString("L3@rn1ng2"));
 console.log("Learning3");
 console.log(hashString("L3@rn1ng3"));
 console.log("Learning4");
-console.log(hashString("L3@rn1ng4"));*/
+console.log(hashString("L3@rn1ng4"));
+console.log("Learning5");
+console.log(hashString("L3@rn1ng5"));*/
 
 server.post('/modeller-login',function(req,res){
 	var username	=	req.body.username;
@@ -836,6 +841,37 @@ server.post('/modeller-login',function(req,res){
 			message: "Wrong Credentials. Try <a href=\"/modeller-login\">logging in</a> again."
 		});
 	}
+});
+
+server.get('/lms/operatorc/:email',function(req,res){
+	var email 	=	decodeURIComponent(req.params.email);
+	mongoClient.connect(url,{useUnifiedTopology: true},function(err,client){
+			if(err){
+				console.log(err)
+			}else{
+				var collection	=	client.db('LMS').collection('OperatorC');
+				collection.find({email:email}).toArray(function(err,result){
+					if(err){
+						console.log(err)
+					}else{
+						if(result.length>0){
+							//user exists
+							res.render('message',{
+								pageInfo: fetchPageInfo('message',''),
+								message: "Yaaay i found you"
+							});
+							client.close();
+						}else{
+							res.render('message',{
+								pageInfo: fetchPageInfo('message',''),
+								message: "No user defined."
+							});
+							client.close();
+						}
+					}
+				});
+			}
+		});
 });
 
 
