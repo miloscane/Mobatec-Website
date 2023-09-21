@@ -843,8 +843,9 @@ server.post('/modeller-login',function(req,res){
 	}
 });
 
-server.get('/lms/operatorc/:email',function(req,res){
+server.get('/lms/operatorc/:email/:name',function(req,res){
 	var email 	=	decodeURIComponent(req.params.email);
+	var name 		=	decodeURIComponent(req.params.name);
 	mongoClient.connect(url,{useUnifiedTopology: true},function(err,client){
 			if(err){
 				console.log(err)
@@ -856,17 +857,28 @@ server.get('/lms/operatorc/:email',function(req,res){
 					}else{
 						if(result.length>0){
 							//user exists
-							res.render('message',{
-								pageInfo: fetchPageInfo('message',''),
-								message: "Yaaay i found you"
-							});
+							res.redirect(result[0].url);
 							client.close();
 						}else{
-							res.render('message',{
-								pageInfo: fetchPageInfo('message',''),
-								message: "No user defined."
+							var mailOptions = {
+								from: '"Mobatec Cloud" <admin@mobatec.cloud>',
+								to: "milos.ivankovic@mobatec.nl",
+								subject: 'OperatorC New User',
+								html: "Whitelist required for: <br>"+name+"<br>&nbsp<br>"+email
+							};
+
+							transporter.sendMail(mailOptions, (error, info) => {
+								if (error) {
+									return console.log(error);
+								}
+								res.render('message',{
+									pageInfo: fetchPageInfo('message',''),
+									message: "Sorry "+name+",<br>No user defined with student ID: "+ email "<br>. An e-mail has been sent to whitelist you, once you receive an e-mail from Mobatec you can try the exercise again."
+								});
+								client.close();
 							});
-							client.close();
+							
+							
 						}
 					}
 				});
