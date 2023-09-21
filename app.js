@@ -873,7 +873,7 @@ server.get('/lms/operatorc/:email/:name',function(req,res){
 								}
 								res.render('message',{
 									pageInfo: fetchPageInfo('message',''),
-									message: "Sorry "+name+",<br>No user defined with student ID: "+ email "<br>. An e-mail has been sent to whitelist you, once you receive an e-mail from Mobatec you can try the exercise again."
+									message: "Sorry "+name+",<br>No user defined with student ID: "+ email + "<br>. An e-mail has been sent to whitelist you, once you receive an e-mail from Mobatec you can try the exercise again."
 								});
 								client.close();
 							});
