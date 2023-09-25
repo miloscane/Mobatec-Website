@@ -843,6 +843,13 @@ server.post('/modeller-login',function(req,res){
 	}
 });
 
+server.get('/lms/operatorc',function(req,res){
+	res.render('message',{
+		pageInfo: fetchPageInfo('message',''),
+		message: "Waiting user information..."
+	});
+});
+
 server.get('/lms/operatorc/:email/:name',function(req,res){
 	var email 	=	decodeURIComponent(req.params.email);
 	var name 		=	decodeURIComponent(req.params.name);
