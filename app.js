@@ -862,16 +862,16 @@ server.get('/lms/operatorc/:email/:name',function(req,res){
 					if(err){
 						console.log(err)
 					}else{
-						if(result.length>0){
+						res.redirect("https://operatorc6demo.modeller.cloud:3000/vnc.html?password=7b0ce21a0d8d3c7adec51d48abe2a3e9");
+						/*if(result.length>0){
 							//user exists
-							res.redirect(result[0].url);
 							client.close();
 						}else{
 							var mailOptions = {
 								from: '"Mobatec Cloud" <admin@mobatec.cloud>',
 								to: "milos.ivankovic@mobatec.nl",
 								subject: 'OperatorC New User',
-								html: "Whitelist required for: <br>"+name+"<br>&nbsp<br>"+email
+								html: "Whitelist required for: <br>"+name+"<br>&nbsp<br>"+email+"<br>Encoded name: "+req.params.name
 							};
 
 							transporter.sendMail(mailOptions, (error, info) => {
@@ -886,7 +886,7 @@ server.get('/lms/operatorc/:email/:name',function(req,res){
 							});
 							
 							
-						}
+						}*/
 					}
 				});
 			}
