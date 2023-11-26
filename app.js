@@ -789,19 +789,55 @@ server.get('/modeller-login',function(req,res){
 	});
 });
 
-//console.log("Learning1");
-//console.log(hashString("L3@rn1ng1"));
-
-/*console.log("Learning2");
-console.log(hashString("L3@rn1ng2"));
-console.log("Learning3");
-console.log(hashString("L3@rn1ng3"));
-console.log("Learning4");
-console.log(hashString("L3@rn1ng4"));
-console.log("Learning5");
-console.log(hashString("L3@rn1ng5"));*/
-
 server.post('/modeller-login',function(req,res){
+	var username	=	req.body.username;
+	var password	=	hashString(req.body.password);
+	if(username && password){
+		mongoClient.connect(url,{useUnifiedTopology: true},function(err,client){
+			if(err){
+				console.log(err)
+			}else{
+				var collection	=	client.db('MobaHub').collection('Modeller Cloud');
+				collection.find({username:username}).toArray(function(err,result){
+					if(err){
+						console.log(err)
+					}else{
+						if(result.length>0){
+							if(result[0].password==password){
+									res.redirect(result[0].url);
+							}else{
+								res.render('message',{
+									pageInfo: fetchPageInfo('message',''),
+									message: "Wrong Credentials. Try <a href=\"/modeller-login\">logging in</a> again."
+								});
+								client.close();
+							}
+						}else{
+							res.render('message',{
+								pageInfo: fetchPageInfo('message',''),
+								message: "Wrong Credentials. Try <a href=\"/modeller-login\">logging in</a> again."
+							});
+							client.close();
+						}
+					}
+				});
+			}
+		});
+	}else{
+		res.render('message',{
+			pageInfo: fetchPageInfo('message',''),
+			message: "Wrong Credentials. Try <a href=\"/modeller-login\">logging in</a> again."
+		});
+	}
+});
+
+server.get('/modeller-login2',function(req,res){
+	res.render('modeller-login2',{
+		pageInfo: fetchPageInfo('message','')
+	});
+});
+
+server.post('/modeller-login2',function(req,res){
 	var username	=	req.body.username;
 	var password	=	hashString(req.body.password);
 	if(username && password){
