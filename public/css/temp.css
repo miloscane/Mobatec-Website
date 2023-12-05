@@ -634,7 +634,7 @@ progress{
     z-index:20;
 }
 
-.screenshotsWrap .screenshotWrap .screenshot:hover{
+.screenshotsWrap .screenshotWrap .screenshot:focus{
     width:300%;
     margin-left:-75%;
     margin-top:-50%;
