@@ -52,10 +52,10 @@ function hashString(string){
 	return hash
 }
 
-console.log(hashString("mobatec123"))
 
 //PORT Listening
 http.listen(process.env.PORT, function(){
+	console.log("Mobatec azurewebsistes")
   console.log('Server Started');
 });
 
