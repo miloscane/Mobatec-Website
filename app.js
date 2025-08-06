@@ -485,7 +485,7 @@ server.get('/modeller-check/:downloadcode',function(req,res){
 					if(result.length>0){
 						if(result[0].valid){
 							//res.download(__dirname+'/public/downloads/Modeller_v4_16900_Setup.exe','Modeller_v4_16900_Setup.exe')
-							res.download('https://mobatec.nl/Modeller/'+modellerVersion,modellerVersion)
+							res.redirect('https://mobatec.nl/Modeller/'+modellerVersion,modellerVersion)
 						}else{
 							res.render('message',{
 								pageInfo: fetchPageInfo('message',''),
@@ -522,7 +522,7 @@ server.get('/modeller-latest/:downloadcode',function(req,res){
 					if(result.length>0){
 						if(result[0].valid){
 							//res.download(__dirname+'/public/downloads/Modeller_v4_16900_Setup.exe','Modeller_v4_16900_Setup.exe')
-							res.download('https://mobatec.nl/Modeller/'+modellerVersion,modellerVersion)
+							res.redirect('https://mobatec.nl/Modeller/'+modellerVersion,modellerVersion)
 							//res.redirect("https://mobatec.nl/Modeller/"+req.query.version)
 						}else{
 							res.render('message',{
