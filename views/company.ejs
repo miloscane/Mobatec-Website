@@ -12,15 +12,15 @@
 					<div class="title">Get in Touch2</div>
 					<div class="contactTitle">EMAIL US</div>
 					<div class="contactItem">
-						<a href="mailto:info@mobatec.nl">info@mobatec.nl</a><div class="arrow"><img src="/icons/rightArrowSmall.png"></div>
+						<a href="mailto:info@mobatec.nl">info@mobatec.nl</a><div class="arrow"><img src="<%=bucket%>/icons/rightArrowSmall.png"></div>
 					</div>
 					<div class="contactTitle">CALL US</div>
 					<div class="contactItem">
-						<a href="tel:+31-62-477-1097">+31-62-477-1097</a><div class="arrow"><img src="/icons/rightArrowSmall.png"></div>
+						<a href="tel:+31-62-477-1097">+31-62-477-1097</a><div class="arrow"><img src="<%=bucket%>/icons/rightArrowSmall.png"></div>
 					</div>
 					<div class="contactTitle">ADDRESS</div>
 					<div class="contactItem">
-						<a href="https://www.google.com/maps/place/Mobatec+B.V./@51.3060038,5.6188,15z/data=!4m5!3m4!1s0x0:0xefc582e923844308!8m2!3d51.3060038!4d5.6188" rel="external" target="_blank">Poelsnep 2, 6026 BZ Maarheze, The Netherlands</a><div class="arrow"><img src="/icons/rightArrowSmall.png"></div>
+						<a href="https://www.google.com/maps/place/Mobatec+B.V./@51.3060038,5.6188,15z/data=!4m5!3m4!1s0x0:0xefc582e923844308!8m2!3d51.3060038!4d5.6188" rel="external" target="_blank">Poelsnep 2, 6026 BZ Maarheze, The Netherlands</a><div class="arrow"><img src="<%=bucket%>/icons/rightArrowSmall.png"></div>
 					</div>
 				</div>
 				<div class="textWrap">
@@ -56,7 +56,7 @@
 				var imageWrap	=	document.createElement("DIV");
 				imageWrap.setAttribute("class","imageWrap");
 					var	image	=	document.createElement("IMG");
-					image.setAttribute("src",team[i].imageurl);
+					image.setAttribute("src",bucket+team[i].imageurl);
 					imageWrap.appendChild(image);
 
 				var infoWrap	=	document.createElement("DIV");
@@ -142,7 +142,7 @@
 	<div id="lightbox">
 		<div class="contentWrap">
 			<div class="arrowLeftWrap" onclick="navigateLightbox(-1)">
-				<div class="relative"><img src="/icons/leftArrow.png"></div>
+				<div class="relative"><img src="<%=bucket%>/icons/leftArrow.png"></div>
 			</div>
 			<div class="imageWrap">
 				<div class="relative">
@@ -150,10 +150,10 @@
 				</div>
 			</div>
 			<div class="arrowRightWrap" onclick="navigateLightbox(1)">
-				<div class="relative"><img src="/icons/rightArrow.png"></div>
+				<div class="relative"><img src="<%=bucket%>/icons/rightArrow.png"></div>
 			</div>
 			<div class="closeWrap" onclick="closeLightbox()">
-				<img src="/icons/close.png">
+				<img src="<%=bucket%>/icons/close.png">
 			</div>
 		</div>
 	</div>
@@ -165,7 +165,7 @@
 			var photoWrap	=	document.createElement("DIV");
 			photoWrap.setAttribute("class","photoWrap");
 				var photo	=	document.createElement("IMG");
-				photo.setAttribute("src","/images/memorable-moments/thumbnails/"+photoJson.filename);
+				photo.setAttribute("src",bucket+"/images/memorable-moments/thumbnails/"+photoJson.filename);
 				photo.setAttribute("class","photo");
 				photo.setAttribute("alt",photoJson.alt);
 				photo.setAttribute("title",photoJson.title);
@@ -179,7 +179,7 @@
 		function enlargePhoto(elem){
 			var photoJson	=	JSON.parse(elem.dataset.photojson);
 			var image	=	document.createElement("IMG");
-			image.setAttribute("src","/images/memorable-moments/"+photoJson.filename);
+			image.setAttribute("src",bucket+"/images/memorable-moments/"+photoJson.filename);
 			image.setAttribute("class","mainImage");
 			image.setAttribute("data-photojson",JSON.stringify(photoJson));
 			document.getElementById("lightbox").getElementsByClassName("imageWrap")[0].getElementsByClassName("relative")[0].appendChild(image);
@@ -212,7 +212,7 @@
 			}
 
 			var newPhotoJson	=	JSON.parse(allPhotos[newIndex].dataset.photojson)
-			document.getElementById("lightbox").getElementsByClassName("mainImage")[0].setAttribute("src","/images/memorable-moments/"+newPhotoJson.filename);
+			document.getElementById("lightbox").getElementsByClassName("mainImage")[0].setAttribute("src",bucket+"/images/memorable-moments/"+newPhotoJson.filename);
 			document.getElementById("lightbox").getElementsByClassName("mainImage")[0].setAttribute("data-photojson",JSON.stringify(newPhotoJson));
 				
 		}

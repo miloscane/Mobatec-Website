@@ -18,13 +18,13 @@
           <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
           <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
         <![endif]-->
-        <link rel="shortcut icon" href="/favicon.png" type="image/x-icon" />
+        <link rel="shortcut icon" href="<%=bucket%>/favicon.png" type="image/x-icon" />
         <meta property="og:title" content="Mobatec - Introduction To Process Modelling" />
         <meta property="og:type" content="website" />
-        <meta property="og:url" content="https://mobatec.azurewebsites.net/webinars/registration/introduction-to-process-modelling" />
+        <meta property="og:url" content="https://website.mobatec.cloud/webinars/registration/introduction-to-process-modelling" />
         <meta property="og:site_name" content="Mobatec - Introduction To Process Modelling" />
         <meta property="og:description" content="This is a do-it-yourself online Introduction Process Modelling Course provided by Mobatec, which will help you get started with equation based modelling." />
-        <meta property="og:image" content="https://mobatec.azurewebsites.net/images/edu-lic.jpeg" />
+        <meta property="og:image" content="<%=bucket%>/images/edu-lic.jpeg" />
     </head>
     <body>
         <script>
@@ -35,7 +35,7 @@
             var licenseOver =  temp.toFixed(0);
         </script>
         <div id="introcourse" class="introcourse">
-            <div class="background" style="background-image:url('/images/edu-lic.jpeg')"></div>
+            <div class="background" style="background-image:url('<%=bucket%>/images/edu-lic.jpeg')"></div>
             <div id="navigation" class="coursesNavigation">
                 <div class="courseName" data-name="intro" onclick="courseClick(this)">Introduction Course</div>
                 <div class="courseNavigation" data-course="intro" style="display:none">
@@ -87,7 +87,7 @@
             <div class="content" data-type="intro" style="display:block;">
                 <div class="formWrapper" style="margin-left:250px">
                     <div style="text-align:center;">
-                        <img src="/logos/Mobatec-Modeller-White.svg" width="200" style="margin:0 auto">
+                        <img src="<%=bucket%>/logos/Mobatec-Modeller-White.svg" width="200" style="margin:0 auto">
                     </div>
                     <div class="intro">
                         <div class="bigTitle">Introduction to Process Modelling & Simulation</div>
@@ -156,14 +156,14 @@
                             <div class="title">PDEng Vladimir Obradovic</div>
                             <div class="subtitle">Senior Model Engineer and Modelling Consultant</div>
                             <div class="text">
-                                <p><img class="presentorImage" src="/images/Vladimir-Obradovic.jpeg">Graduated as a Chemical Engineer at the Belgrade University, Faculty of Technology and Metallurgy. Immediately Vladimir decided to extend his knowledge and participated and succesfully concluded the Professional Doctorate in Engineering at the Technical University of Eindhoven, with focus to Multi-Phase Reactor modelling.<br>&nbsp;<br>A passion for chemical engineering and with that the design of “the real” dynamic tooling to simulate and build the best possible plants. “Give me the problem I will create the solution” is what best describes Vladimir.</p>
+                                <p><img class="presentorImage" src="<%=bucket%>/images/Vladimir-Obradovic.jpeg">Graduated as a Chemical Engineer at the Belgrade University, Faculty of Technology and Metallurgy. Immediately Vladimir decided to extend his knowledge and participated and succesfully concluded the Professional Doctorate in Engineering at the Technical University of Eindhoven, with focus to Multi-Phase Reactor modelling.<br>&nbsp;<br>A passion for chemical engineering and with that the design of “the real” dynamic tooling to simulate and build the best possible plants. “Give me the problem I will create the solution” is what best describes Vladimir.</p>
                             </div>
                         </div>
                         <div class="textbox presentor">
                             <div class="title">PhD Mathieu Westerweele</div>
                             <div class="subtitle">Managing Director and Co-founder of Mobatec</div>
                             <div class="text">
-                                <p><img class="presentorImage" src="/images/Mathieu-Westerweele.jpeg">During his PhD research project, successfully concluded in april 2003, Mathieu Westerweele and prof. H.A. Preisig developed a methodology for the rapid and systematic construction of consistent dynamic process models.<br>&nbsp;<br>The developed approach has proven itself being very efficient. Models are constructed much faster and also guaranteed to solve structurally and in most cases also numerically. Mathieu has been involved in the Post-Masters design course Process and Product Design (PPD) at the Eindhoven University of Technology. First year coordinator, member of the Scientific Staff and lecturer of the Modelling and Simulation course. From 2013 up to now Mathieu is still involved as lecturer at PPD.</p>
+                                <p><img class="presentorImage" src="<%=bucket%>/images/Mathieu-Westerweele.jpeg">During his PhD research project, successfully concluded in april 2003, Mathieu Westerweele and prof. H.A. Preisig developed a methodology for the rapid and systematic construction of consistent dynamic process models.<br>&nbsp;<br>The developed approach has proven itself being very efficient. Models are constructed much faster and also guaranteed to solve structurally and in most cases also numerically. Mathieu has been involved in the Post-Masters design course Process and Product Design (PPD) at the Eindhoven University of Technology. First year coordinator, member of the Scientific Staff and lecturer of the Modelling and Simulation course. From 2013 up to now Mathieu is still involved as lecturer at PPD.</p>
                             </div>
                         </div>
                         <div class="title">Course Material</div>
@@ -174,8 +174,8 @@
                             <p>Let's start with a quick introduction into <span>process modelling</span> and let you know what you will be able to do after you have completed this course.</p>
                             <div class="videos">
                                 <div class="videoWrap">
-                                    <video width="1280" controls poster="/videos/Courses/Intro/Mathieu-Day1.png">
-                                        <source src="/videos/Courses/Intro/Mathieu-Day1.mp4" type="video/mp4">
+                                    <video width="1280" controls poster="<%=bucket%>/videos/Courses/Intro/Mathieu-Day1.png">
+                                        <source src="<%=bucket%>/videos/Courses/Intro/Mathieu-Day1.mp4" type="video/mp4">
                                         Your browser does not support the video tag.
                                     </video>
                                 </div>
@@ -184,8 +184,8 @@
                             <div class="videos">
                                 <div class="smallSeparator"></div>
                                 <div class="videoWrap">
-                                    <video width="1280" controls poster="/images/Poster1.jpg">
-                                        <source src="/videos/Courses/Intro/Day1-Part-1.mp4" type="video/mp4">
+                                    <video width="1280" controls poster="<%=bucket%>/images/Poster1.jpg">
+                                        <source src="<%=bucket%>/videos/Courses/Intro/Day1-Part-1.mp4" type="video/mp4">
                                         Your browser does not support the video tag.
                                     </video>
                                 </div>
@@ -194,14 +194,14 @@
                             <p>Next, you will learn about the <span>building blocks</span> of any model in Mobatec Modeller (the so-called model building elements). You will also learn about model <span>decomposition methodology</span> and learn about (1) <span>Physical topology</span>, (2) <span>Species topology</span> & (3) <span>Equation topology</span> the three parts of any Mobatec Modeller model.</p>
                             <div class="videos">
                                 <div class="videoWrap">
-                                    <video width="1280" controls poster="/videos/Courses/Intro/Mathieu-Day2.png">
-                                        <source src="/videos/Courses/Intro/Mathieu-Day2.mp4" type="video/mp4">
+                                    <video width="1280" controls poster="<%=bucket%>/videos/Courses/Intro/Mathieu-Day2.png">
+                                        <source src="<%=bucket%>/videos/Courses/Intro/Mathieu-Day2.mp4" type="video/mp4">
                                         Your browser does not support the video tag.
                                     </video>
                                 </div>
                                 <div class="videoWrap">
                                     <video width="1280" controls>
-                                        <source src="/videos/Courses/Intro/Day1-Part-2.mp4" type="video/mp4">
+                                        <source src="<%=bucket%>/videos/Courses/Intro/Day1-Part-2.mp4" type="video/mp4">
                                         Your browser does not support the video tag.
                                     </video>
                                 </div>
@@ -209,7 +209,7 @@
                             <div style="position:relative"><div class="scrollAnchor" id="day1handbook"></div></div>
                             <p>Now it’s time to get started with the exercises. As said, this is a this is a <span>do-it-yourself</span> course that consists of 5 exercises which will each take you 2 to 6 hours to work through.<br>&nbsp;<br> The first two exercises are "model-user" exercises, where you learn the basics of working with Mobatec Modeller.</p>
                             <div class="buttonsWrap">
-                                <a href="/downloads/documents/Mobatec-Modeller-Handbook.pdf" class="downloadButton" download>Download Handbook PDF</a>
+                                <a href="<%=bucket%>/downloads/documents/Mobatec-Modeller-Handbook.pdf" class="downloadButton" download>Download Handbook PDF</a>
                             </div>
                             <div style="position:relative"><div class="scrollAnchor" id="day1exercise1"></div></div>
                             <div class="titleEx">Exercise I</div>
@@ -221,7 +221,7 @@
                             </ul>
                             <p>This exercise will teach you how to compile, run & customize prebuilt models in Mobatec Modeller.</p>
                             <div class="buttonsWrap">
-                                <a href="/downloads/documents/Introduction-Exercise-1.pdf" class="downloadButton" download>Download Exercise I PDF</a>
+                                <a href="<%=bucket%>/downloads/documents/Introduction-Exercise-1.pdf" class="downloadButton" download>Download Exercise I PDF</a>
                             </div>
                             <div style="position:relative"><div class="scrollAnchor" id="day1exercise2"></div></div>
                             <div class="titleEx">Exercise II</div>
@@ -234,7 +234,7 @@
                             </ul>
                             <p>This tutorial will teach you how build and initialize a flowsheet using library models. How to make your model transparent using value displays and run real time process simulations.</p>
                             <div class="buttonsWrap">
-                                <a href="/downloads/documents/Introduction-Exercise-2.pdf" class="downloadButton" download>Download Exercise II PDF</a>
+                                <a href="<%=bucket%>/downloads/documents/Introduction-Exercise-2.pdf" class="downloadButton" download>Download Exercise II PDF</a>
                             </div>
                         </div>
                         <div class="exercisePart">
@@ -245,7 +245,7 @@
                             <div class="videos">
                                 <div class="videoWrap">
                                     <video width="1280" controls poster="/images/Poster2.jpg">
-                                        <source src="/videos/Courses/Intro/Day2-Part-1.mp4" type="video/mp4">
+                                        <source src="<%=bucket%>/videos/Courses/Intro/Day2-Part-1.mp4" type="video/mp4">
                                         Your browser does not support the video tag.
                                     </video>
                                 </div>
@@ -255,7 +255,7 @@
                             <div class="videos">
                                 <div class="videoWrap">
                                     <video width="1280" controls>
-                                        <source src="/videos/Courses/Intro/Day2-Part-2.mp4" type="video/mp4">
+                                        <source src="<%=bucket%>/videos/Courses/Intro/Day2-Part-2.mp4" type="video/mp4">
                                         Your browser does not support the video tag.
                                     </video>
                                 </div>
@@ -272,7 +272,7 @@
                             </ul>
                             <p>This tutorial will teach you how build your first model from scratch, perform Degrees of Freedom (DOF) analysis, and understand how to get consistent set of initial conditions every time.</p>
                             <div class="buttonsWrap">
-                                <a href="/downloads/documents/Introduction-Exercise-3.pdf" class="downloadButton" download>Download Exercise III PDF</a>
+                                <a href="<%=bucket%>/downloads/documents/Introduction-Exercise-3.pdf" class="downloadButton" download>Download Exercise III PDF</a>
                             </div>
                         </div>
                         <div class="exercisePart">
@@ -282,8 +282,8 @@
                             <p>This is the 3<sup>rd</sup> and final session of our Introduction to Process Modelling Course. You will learn more about <span>Initial Conditions</span> (IC) definition in Mobatec Modeller and how the software will help you to diagnose if you have defined a consistent set of initial conditions every time.</p>
                             <div class="videos">
                                 <div class="videoWrap">
-                                    <video width="1280" controls poster="/images/Poster3.jpg">
-                                        <source src="/videos/Courses/Intro/Day3-Part-1.mp4" type="video/mp4">
+                                    <video width="1280" controls poster="<%=bucket%>/images/Poster3.jpg">
+                                        <source src="<%=bucket%>/videos/Courses/Intro/Day3-Part-1.mp4" type="video/mp4">
                                         Your browser does not support the video tag.
                                     </video>
                                 </div>
@@ -293,7 +293,7 @@
                             <div class="videos">
                                 <div class="videoWrap">
                                     <video width="1280" controls>
-                                        <source src="/videos/Courses/Intro/Day3-Part-2.mp4" type="video/mp4">
+                                        <source src="<%=bucket%>/videos/Courses/Intro/Day3-Part-2.mp4" type="video/mp4">
                                         Your browser does not support the video tag.
                                     </video>
                                 </div>
@@ -303,7 +303,7 @@
                             <div class="videos">
                                 <div class="videoWrap">
                                     <video width="1280" controls>
-                                        <source src="/videos/Courses/Intro/Day3-Part-3.mp4" type="video/mp4">
+                                        <source src="<%=bucket%>/videos/Courses/Intro/Day3-Part-3.mp4" type="video/mp4">
                                         Your browser does not support the video tag.
                                     </video>
                                 </div>
@@ -320,7 +320,7 @@
                             </ul>
                             <p>This tutorial teaches you to add reactions and make reactor models from scratch. How to use global parameters feature and model discontinuities. How to make dynamic plots and make use of button objects.</p>
                             <div class="buttonsWrap">
-                                <a href="/downloads/documents/Introduction-Exercise-4.pdf" class="downloadButton" download>Download Exercise IV PDF</a>
+                                <a href="<%=bucket%>/downloads/documents/Introduction-Exercise-4.pdf" class="downloadButton" download>Download Exercise IV PDF</a>
                             </div>
                             <div style="position:relative"><div class="scrollAnchor" id="day3exercise5"></div></div>
                             <div class="titleEx">Exercise V</div>
@@ -334,7 +334,7 @@
                             </ul>
                             <p>This tutorial teaches you how energy balances are generated. How to make use of thermodynamic database property calculations. How to make composite multi-layer models and how to communicate parameters & variable values between different model layers. How to import current simulation state as initial conditions.</p>
                             <div class="buttonsWrap">
-                                <a href="/downloads/documents/Introduction-Exercise-5.pdf" class="downloadButton" download>Download Exercise V PDF</a>
+                                <a href="<%=bucket%>/downloads/documents/Introduction-Exercise-5.pdf" class="downloadButton" download>Download Exercise V PDF</a>
                             </div>
                             <div class="smallSeparator"></div>
                             <ul>
@@ -360,8 +360,8 @@
                             </div>-->
                             <div class="videos">
                                 <div class="videoWrap">
-                                    <video width="1280" controls poster="/videos/Courses/Intro/Mathieu-Day3.png">
-                                        <source src="/videos/Courses/Intro/Mathieu-Day3.mp4" type="video/mp4">
+                                    <video width="1280" controls poster="<%=bucket%>/videos/Courses/Intro/Mathieu-Day3.png">
+                                        <source src="<%=bucket%>/videos/Courses/Intro/Mathieu-Day3.mp4" type="video/mp4">
                                         Your browser does not support the video tag.
                                     </video>
                                 </div>
@@ -377,74 +377,11 @@
                                     </script>
                                 </div>
                             </div>
-
-                            <!--<div class="textbox">
-                                Mobatec Modeller is a user-friendly, computer-aided modelling tool to interactively define and modify models of any size. Rapid construction, modification, validation and maintenance of consistent, high fidelity, first principle based process models is supported with Mobatec Modeller.<br>&nbsp;<br>
-                                Mobatec offers non-exclusive, non-transferable, limited licenses to use Mobatec Modeller solely for internal, non-commercial use. Examples of non-commercial uses include academic research, personal experimentation, or teaching and educational purposes.<br>&nbsp;<br>
-                            </div>
-                            <div class="purchaseButtonWrap">
-                                <div class="purchaseButton">
-                                    <a onclick="document.getElementById('lightbox').style.display='block';" style="cursor: pointer;">PURCHASE MOBATEC MODELLER EDUCATIONAL LICENSE FOR 1 YEAR NOW!!</a>
-                                   
-                                </div>
-                            </div>
-                            <div class="purchaseButtonWrap differentColor">
-                                <div class="purchaseButton">
-                                    <a id="buy6">Click Here to view the License Details of Mobatec Modeller Educational</a>
-                                    <script>
-                                        document.getElementById("buy7").setAttribute("href","https://mobatec.nl/web/products/mobatec-modeller/educational-license")
-                                    </script>
-                                </div>
-                            </div>-->
                         </div>
-                        
                     </div>
                 </div>
             </div>
-            <!--<div id="lightbox" onclick="this.style.display='none'">
-                <div class="lightbox-content" onclick="event.stopPropagation()">
-                    <div style="position:relative">
-                        <div class="title">Mobatec Modeller Educational License<br>157&euro;</div>
-                        <ul style="text-align:left">
-                            <li>Become an <span style="color:rgb(20,255,20)">advanced</span> model builder</li>
-                            <li>Truly <span style="color:rgb(20,255,20)">understand</span> your Process Models</li>
-                            <li>Complete <span style="color:rgb(20,255,20)">flexibility</span> on your model definitions</li>
-                            <li><span style="color:rgb(20,255,20)">Impress</span> everybody with your new process modelling knowledge</li>
-                            <li>Your license will include:</li>
-
-                                <ul>
-                                    <li>Modelling, Simulation and Run Time Environment</li>
-                                    <li>Physical Properties Database (Thermodynamics)</li>
-                                    <li>Educational Model Library</li>
-                                    <li>Models limited to non commercial use and supports up to 100 dynamic systems within one model.</li>
-                                </ul>
-                        </ul>
-                        <div class="inputWrap">
-                            <div class="fieldName">Email:</div>
-                            <input type="text" id="email">
-                            <script>document.getElementById("email").value=user.email</script>
-                        </div>
-                        <div class="inputWrap">
-                            <div class="fieldName">Name:</div>
-                            <input type="text" id="name">
-                            <script>document.getElementById("name").value=user.name</script>
-                        </div>
-                        <div class="purchaseButtonWrap">
-                            <div class="purchaseButton">
-                                <a onclick="paynow()" style="cursor: pointer;">Pay</a>
-                            </div>
-                        </div>
-                        <div class="lightboxClose" onclick="document.getElementById('lightbox').style.display='none'">
-                            <img src="https://mobatec.nl/web/wp-content/uploads/2017/11/Close.png">
-                        </div>
-                    </div>
-                    <script>
-                        function paynow(){
-                            window.location.href="https://mobatec.nl/payment/pay.php?name="+encodeURIComponent(document.getElementById('name').value)+"&email="+encodeURIComponent(document.getElementById('email').value)+"&quantity=1&licensecode=edu&company=null&invoicename=null&address=null&postcode=null&country=null&vat=null"
-                        }
-                    </script>
-                </div>
-            </div>-->
+            
             <script>
                 function courseClick(elem){
                     var courses = document.getElementsByClassName("introcourse")[0].getElementsByClassName("coursesNavigation")[0].getElementsByClassName("courseNavigation");

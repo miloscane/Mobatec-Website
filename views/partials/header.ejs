@@ -20,7 +20,7 @@
       <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
       <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
     <![endif]-->
-    <link rel="shortcut icon" href="/favicon.png" type="image/x-icon" />
+    <link rel="shortcut icon" href="<%=bucket%>/favicon.png" type="image/x-icon" />
     <script type="text/javascript" src="/js/menu.js"></script>
     <meta property="og:title" content="<%=pageInfo.title%>" />
     <meta property="og:type" content="website" />
@@ -33,4 +33,7 @@
     <header>
       <%- include ("partials/menu") -%>
     </header>
+    <script>
+      var bucket = "<%=bucket%>";
+    </script>
     <div id="site-content">

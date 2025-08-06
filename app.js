@@ -46,6 +46,7 @@ server.use(session({
     saveUninitialized: true
 }));
 
+var bucket = process.env.bucket ? process.env.bucket : "";
 
 function hashString(string){
 	var hash	=	crypto.createHash('md5').update(string).digest('hex')
@@ -292,6 +293,7 @@ dripClient.listAllSubscribesToCampaign(campaignId,options)
 server.get('/',function(req,res){
 	res.render('home',{
 		pageInfo: fetchPageInfo('home',''),
+		bucket: bucket,
 		pageName: 'home'
 	});
 });
@@ -299,6 +301,7 @@ server.get('/',function(req,res){
 server.get('/services',function(req,res){
 	res.render('services',{
 		pageInfo: fetchPageInfo('services',''),
+		bucket: bucket,
 		pageName: 'services'
 	});
 });
@@ -306,6 +309,7 @@ server.get('/services',function(req,res){
 server.get('/products',function(req,res){
 	res.render('products',{
 		pageInfo: fetchPageInfo('products',''),
+		bucket: bucket,
 		pageName: 'products'
 	});
 });
@@ -330,6 +334,7 @@ server.get('/projects',function(req,res){
 	res.render('projects',{
 		pageInfo: fetchPageInfo('projects',''),
 		pageName: 'projects',
+		bucket: bucket,
 		projects: projectsArray 
 	});
 });
@@ -337,7 +342,8 @@ server.get('/projects',function(req,res){
 server.get('/downloads',function(req,res){
 	res.render('downloads',{
 		pageInfo: fetchPageInfo('downloads',''),
-		pageName: 'downloads'
+		pageName: 'downloads',
+		bucket: bucket
 	});
 });
 
@@ -379,13 +385,15 @@ server.get('/company',function(req,res){
 		pageInfo: 	fetchPageInfo('company',''),
 		pageName: 	'company',
 		team: 		team,
+		bucket: bucket,
 		photos: 	photos 
 	});
 });
 
 server.get('/modeller-download',function(req,res){
 	res.render('modeller-download',{
-		pageInfo: fetchPageInfo('modeller-download','')
+		pageInfo: fetchPageInfo('modeller-download',''),
+		bucket: bucket
 	});
 });
 
@@ -404,11 +412,13 @@ server.post('/modeller-download',function(req,res){
 						if(result[0].valid){//Not really needed but i left it there anyhow
 							res.render('message',{
 								pageInfo: fetchPageInfo('message',''),
+								bucket: bucket,
 								message: "You have already subscribed for Mobatec Modeller.<br>&nbsp<br><a class=\"submitButton\" href=\"/modeller-check/"+result[0].downloadcode+"\">Download Latest Version</a><br>&nbsp<br>Kind regards,<br>The Mobatec Team"
 							});
 						}else{
 							res.render('message',{
 								pageInfo: fetchPageInfo('message',''),
+								bucket: bucket,
 								message: "This email is already subscribed but was never verified.<br>&nbsp<br>We have sen another download to link to the e-mail that was provided.<br>&nbsp<br>Kind regards,<br>The Mobatec Team"
 							});
 						}
@@ -428,7 +438,7 @@ server.post('/modeller-download',function(req,res){
 								}
 							],
 							html: "Hello "+name+",<br>You can download the latest version of Mobatec Modeller "
-							+"<a href=\"https://mobatec.azurewebsites.net/modeller-check/"+downloadcode+"\">here</a>."
+							+"<a href=\"https://website.mobatec.cloud/modeller-check/"+downloadcode+"\">here</a>."
 							+"<br>&nbsp;<br>You can subscribe to our free introduction course "
 							+"<a href=\"https://www.mobatec.nl/web/course-registration\">here</a> "
 							+"and <b>get a one month Mobatec Modeller license</b> to complete the course once you have verified your e-mail address.<br>"
@@ -444,6 +454,7 @@ server.post('/modeller-download',function(req,res){
 						});
 						res.render('message',{
 							pageInfo: fetchPageInfo('message',''),
+							bucket: bucket,
 							message: "We have sent you the download link for Mobatec Modeller on the e-mail you have provided.<br>&nbsp<br>Good luck with modelling!<br>&nbsp;<br>Kind regards,<br>The Mobatec Team"
 						});
 					}
@@ -454,6 +465,7 @@ server.post('/modeller-download',function(req,res){
 		res.render('modeller-download',{
 			pageInfo: fetchPageInfo('modeller-download',''),
 			email: email,
+			bucket: bucket,
 			name: req.body.name
 		});
 	}
@@ -472,16 +484,17 @@ server.get('/modeller-check/:downloadcode',function(req,res){
 					if(result.length>0){
 						if(result[0].valid){
 							res.download(__dirname+'/public/downloads/Modeller_v4_16900_Setup.exe','Modeller_v4_16900_Setup.exe')
-							//res.redirect("https://mobatec.nl/Modeller/getlink.php?bounceback="+encodeURIComponent("https://mobatec.azurewebsites.net/modeller-latest/"+req.params.downloadcode));
 						}else{
 							res.render('message',{
 								pageInfo: fetchPageInfo('message',''),
+								bucket: bucket,
 								message: "To download the latest version of Mobatec Modeller please verify your e-mail address."
 							});
 						}
 					}else{
 						res.render('message',{
 							pageInfo: fetchPageInfo('message',''),
+							bucket: bucket,
 							message: "No no :)"
 						});
 					}
@@ -511,12 +524,14 @@ server.get('/modeller-latest/:downloadcode',function(req,res){
 						}else{
 							res.render('message',{
 								pageInfo: fetchPageInfo('message',''),
+								bucket: bucket,
 								message: "To download the latest version of Mobatec Modeller please verify your e-mail address."
 							});
 						}
 					}else{
 						res.render('message',{
 							pageInfo: fetchPageInfo('message',''),
+							bucket: bucket,
 							message: "No no :)"
 						});
 					}
@@ -529,7 +544,8 @@ server.get('/modeller-latest/:downloadcode',function(req,res){
 
 server.get('/webinars/registration/introduction-to-process-modelling',function(req,res){
 	res.render('webinar-registration',{
-		pageInfo: fetchPageInfo('introduction-webinar','')
+		pageInfo: fetchPageInfo('introduction-webinar',''),
+		bucket: bucket
 	});
 });
 
@@ -547,6 +563,7 @@ server.get('/webinars/verification/:verificationid',function(req,res){
 						if(result[0].valid){
 							res.render('message',{
 								pageInfo: fetchPageInfo('message',''),
+								bucket: bucket,
 								message: "This e-mail has already been verified. You can view the course by clicking <a href='/webinars/watch/introduction-to-process-modelling/"+req.params.verificationid+"' style='color:rgb(20,255,20);font-weight:600;text-decoration:none'>here.</a>"
 							});
 							client.close();
@@ -561,6 +578,7 @@ server.get('/webinars/verification/:verificationid',function(req,res){
 									if(result2.modifiedCount==0){
 										res.render('message',{
 											pageInfo: fetchPageInfo('message',''),
+											bucket: bucket,
 											message: "No no :)"
 										});
 									}else if(result2.modifiedCount==1){
@@ -580,6 +598,7 @@ server.get('/webinars/verification/:verificationid',function(req,res){
 												}
 												res.render('message',{
 													pageInfo: fetchPageInfo('message',''),
+													bucket: bucket,
 													message: "You successfully verified your e-mail and have been <a href='/webinars/watch/introduction-to-process-modelling/"+result[0].validationcode+"'><span class='green'>granted access to Introduction to Process Modelling Course</span></a>.<br>&nbsp;<br>You have also been granted a <span class='green'>one month license</span> for Mobatec Modeller starting from this time.<br>&nbsp;<br>Good luck with modelling!<div style='margin-top:20px;'><div class='submitButton' onclick='window.location.href=\"/webinars/watch/introduction-to-process-modelling/"+result[0].validationcode+"\"'>Go to Course!</div></div>"
 												});
 												var mailOptions = {
@@ -593,12 +612,12 @@ server.get('/webinars/verification/:verificationid',function(req,res){
 														}
 													],
 													html: "Hello "+result[0].name+",<br>Thank you for verifying your e-mail.<br>&nbsp;<br>You can access the "
-													+"course <a href=\"https://mobatec.azurewebsites.net/webinars/watch/introduction-to-process-modelling/"+result[0].validationcode+"\">here</a>."
+													+"course <a href=\"https://website.mobatec.cloud/webinars/watch/introduction-to-process-modelling/"+result[0].validationcode+"\">here</a>."
 													+"<br>&nbsp;<br>Your Mobatec Modeller license is "
 													+"active until "+showDate(licenseOver.getTime())+".<br>&nbsp;<br>To use your license go into \"License Options\" and click "
 													+"\"Connect to a license server\". For the license server logon use license.mobatec.nl and for Server Logon User Name use "
 													+"your email address: "+result[0].email.toLowerCase()+"<br>&nbsp;<br> You can download Mobatec Modeller by clicking on "
-													+"<a href=\"https://mobatec.azurewebsites.net/modeller-check/"+downloadCode+"\">this link.</a><br>&nbsp;<br>"
+													+"<a href=\"https://website.mobatec.cloud/modeller-check/"+downloadCode+"\">this link.</a><br>&nbsp;<br>"
 													+"We have also attached a free whitepaper \"Modelling and Simulation in Process Industry\". To view it online click <a href=\"https://www.mobatec.nl/web/downloads/Mobatec_Whitepaper_Succesfully_Apply_Simulation_Models.pdf\">here</a><br>&nbsp;<br>"
 													+"Kind regards,<br>The Mobatec Team"
 												};
@@ -621,6 +640,7 @@ server.get('/webinars/verification/:verificationid',function(req,res){
 					}else{
 						res.render('message',{
 							pageInfo: fetchPageInfo('message',''),
+							bucket: bucket,
 							message: "No no :)"
 						});
 						client.close();
@@ -656,6 +676,7 @@ server.post('/introduction-course-registration',function(req,res){
 									pageInfo: fetchPageInfo('introduction-webinar',''),
 									email: email,
 									name: name,
+									bucket: bucket,
 									scroll: scroll,
 									emaildouble: result[0].valid ? 1 : 2
 								});
@@ -666,7 +687,7 @@ server.post('/introduction-course-registration',function(req,res){
 									from: '"Mobatec Cloud" <admin@mobatec.cloud>',
 									to: email.toLowerCase(),
 									subject: 'Mobatec E-mail Verification',
-									html: "Hello "+result[0].name+",<br>&nbsp;<br>Please click <a href='https://mobatec.azurewebsites.net/webinars/verification/"
+									html: "Hello "+result[0].name+",<br>&nbsp;<br>Please click <a href='https://website.mobatec.cloud/webinars/verification/"
 									+result[0].validationcode+"''>here</a>"
 									+" to verify your e-mail address and gain access to the Introduction to Process Modelling Course.<br>&nbsp;<br>"
 									+"Kind regards,<br>The Mobatec Team"
@@ -697,7 +718,7 @@ server.post('/introduction-course-registration',function(req,res){
 										from: '"Mobatec Cloud" <admin@mobatec.cloud>',
 										to: email.toLowerCase(),
 										subject: 'Mobatec E-mail Verification',
-										html: "Hello "+name+",<br>&nbsp;<br>Please click <a href='https://mobatec.azurewebsites.net/webinars/verification/"+registerJson.validationcode+"''>here</a>"
+										html: "Hello "+name+",<br>&nbsp;<br>Please click <a href='https://website.mobatec.cloud/webinars/verification/"+registerJson.validationcode+"''>here</a>"
 										+" to verify your e-mail address and gain access to the Introduction to Process Modelling Course.<br>&nbsp;<br>"
 										+"Kind regards,<br>The Mobatec Team"
 									};
@@ -708,6 +729,7 @@ server.post('/introduction-course-registration',function(req,res){
 										}else{
 											res.render('message',{
 												pageInfo: fetchPageInfo('message',''),
+												bucket: bucket,
 												message: "Please verify the e-mail address by clicking on the link in the message we have just sent.<br>&nbsp;<br>Kind regards<br>The Mobatec Team"
 											});
 										}
@@ -726,6 +748,7 @@ server.post('/introduction-course-registration',function(req,res){
 			pageInfo: fetchPageInfo('introduction-webinar',''),
 			email: email,
 			name: name,
+			bucket: bucket,
 			scroll: scroll
 		});
 	}
@@ -746,18 +769,20 @@ server.get('/webinars/watch/introduction-to-process-modelling/:verificationid',f
 						if(result[0].valid){
 							res.render('introduction-webinar',{
 								pageInfo: fetchPageInfo('introduction-webinar',''),
+								bucket: bucket,
 								user: result[0]
 							});
 						}else{
 							res.render('message',{
 								pageInfo: fetchPageInfo('message',''),
+								bucket: bucket,
 								message: "Hello "+result[0].name+",<br>Your e-mail address still hasn't been verified. Please click on the link that we have resent.<br>&nbsp;<br>Kind reagrds,<br>The Mobatec Team"
 							});
 							var mailOptions = {
 								from: '"Mobatec Cloud" <admin@mobatec.cloud>',
 								to: result[0].email.toLowerCase(),
 								subject: 'Mobatec E-mail Verification',
-								html: "Hello "+result[0].name+",<br>Please click <a href='https://mobatec.azurewebsites.net/webinars/verification/"
+								html: "Hello "+result[0].name+",<br>Please click <a href='https://website.mobatec.cloud/webinars/verification/"
 								+result[0].validationcode+"''>here</a>"
 								+" to verify your e-mail address and gain access to the Introduction to Process Modelling & Simulation webinar.<br>"
 								+"Kind regards,<br>The Mobatec Team"
@@ -773,6 +798,7 @@ server.get('/webinars/watch/introduction-to-process-modelling/:verificationid',f
 					}else{
 						res.render('message',{
 							pageInfo: fetchPageInfo('message',''),
+							bucket: bucket,
 							message: "No no :)"
 						});
 						client.close();
@@ -786,7 +812,8 @@ server.get('/webinars/watch/introduction-to-process-modelling/:verificationid',f
 
 server.get('/modeller-login',function(req,res){
 	res.render('modeller-login',{
-		pageInfo: fetchPageInfo('message','')
+		pageInfo: fetchPageInfo('message',''),
+		bucket: bucket
 	});
 });
 
@@ -809,6 +836,7 @@ server.post('/modeller-login',function(req,res){
 							}else{
 								res.render('message',{
 									pageInfo: fetchPageInfo('message',''),
+									bucket: bucket,
 									message: "Wrong Credentials. Try <a href=\"/modeller-login\">logging in</a> again."
 								});
 								client.close();
@@ -816,6 +844,7 @@ server.post('/modeller-login',function(req,res){
 						}else{
 							res.render('message',{
 								pageInfo: fetchPageInfo('message',''),
+								bucket: bucket,
 								message: "Wrong Credentials. Try <a href=\"/modeller-login\">logging in</a> again."
 							});
 							client.close();
@@ -827,6 +856,7 @@ server.post('/modeller-login',function(req,res){
 	}else{
 		res.render('message',{
 			pageInfo: fetchPageInfo('message',''),
+			bucket: bucket,
 			message: "Wrong Credentials. Try <a href=\"/modeller-login\">logging in</a> again."
 		});
 	}
@@ -834,7 +864,8 @@ server.post('/modeller-login',function(req,res){
 
 server.get('/modeller-login2',function(req,res){
 	res.render('modeller-login2',{
-		pageInfo: fetchPageInfo('message','')
+		pageInfo: fetchPageInfo('message',''),
+		bucket: bucket
 	});
 });
 
@@ -857,6 +888,7 @@ server.post('/modeller-login2',function(req,res){
 							}else{
 								res.render('message',{
 									pageInfo: fetchPageInfo('message',''),
+									bucket: bucket,
 									message: "Wrong Credentials. Try <a href=\"/modeller-login\">logging in</a> again."
 								});
 								client.close();
@@ -864,6 +896,7 @@ server.post('/modeller-login2',function(req,res){
 						}else{
 							res.render('message',{
 								pageInfo: fetchPageInfo('message',''),
+								bucket: bucket,
 								message: "Wrong Credentials. Try <a href=\"/modeller-login\">logging in</a> again."
 							});
 							client.close();
@@ -875,6 +908,7 @@ server.post('/modeller-login2',function(req,res){
 	}else{
 		res.render('message',{
 			pageInfo: fetchPageInfo('message',''),
+			bucket: bucket,
 			message: "Wrong Credentials. Try <a href=\"/modeller-login\">logging in</a> again."
 		});
 	}
@@ -883,6 +917,7 @@ server.post('/modeller-login2',function(req,res){
 server.get('/lms/operatorc',function(req,res){
 	res.render('message',{
 		pageInfo: fetchPageInfo('message',''),
+		bucket: bucket,
 		message: "Waiting user information..."
 	});
 });
@@ -993,7 +1028,8 @@ mongoClient.connect(url,{useUnifiedTopology: true},function(err,client){
 
 server.get('/courses-login',function(req,res){
 	res.render('courses-login',{
-		pageInfo: fetchPageInfo('courses','')
+		pageInfo: fetchPageInfo('courses',''),
+		bucket: bucket
 	});
 });
 
@@ -1022,7 +1058,8 @@ server.post('/courses-login',function(req,res){
 							}else{
 								res.render('message',{
 									pageInfo: fetchPageInfo('message',''),
-									message: "The password you have provided is incorrect. Try logging in again by clicking <a href=\"https://mobatec.azurewebsites.net/courses-login\">here</a><br>&nbsp<br>Kind regards,<br>The Mobatec Team"
+									bucket: bucket,
+									message: "The password you have provided is incorrect. Try logging in again by clicking <a href=\"https://website.mobatec.cloud/courses-login\">here</a><br>&nbsp<br>Kind regards,<br>The Mobatec Team"
 								});
 							}
 							client.close();
@@ -1033,7 +1070,7 @@ server.post('/courses-login',function(req,res){
 								to: email.toLowerCase(),
 								subject: 'Mobatec Modeller Online Course Password Reset',
 								html: "Hello,<br>To reset your password for Mobatec Modeller Online Course material please click"
-								+" <a href='https://mobatec.azurewebsites.net/courses-register/"+result[0].unique+"''>here</a>. <br>"
+								+" <a href='https://website.mobatec.cloud/courses-register/"+result[0].unique+"''>here</a>. <br>"
 								+"Kind regards,<br>The Mobatec Team"
 							};
 
@@ -1044,6 +1081,7 @@ server.post('/courses-login',function(req,res){
 							});
 							res.render('message',{
 								pageInfo: fetchPageInfo('message',''),
+								bucket: bucket,
 								message: "We have sent you an e-mail with a password reset link.<br>&nbsp<br>Kind regards,<br>The Mobatec Team"
 							});
 							client.close();
@@ -1052,6 +1090,7 @@ server.post('/courses-login',function(req,res){
 					}else{
 						res.render('message',{
 							pageInfo: fetchPageInfo('message',''),
+							bucket: bucket,
 							message: "This e-mail is not registered to view Mobatec Modeller online course material.<br>&nbsp<br>Kind regards,<br>The Mobatec Team"
 						});
 						client.close();
@@ -1065,6 +1104,7 @@ server.post('/courses-login',function(req,res){
 server.get('/courses-register/:id',function(req,res){
 	res.render('courses-register',{
 		pageInfo: fetchPageInfo('courses-register',''),
+		bucket: bucket,
 		id: 			req.params.id
 	});
 });
@@ -1094,6 +1134,7 @@ server.post('/courses-register',function(req,res){
 					}else{
 						res.render('message',{
 							pageInfo: fetchPageInfo('message',''),
+							bucket: bucket,
 							message: "Something went wrong with setting your password. Please try again.<br>&nbsp<br>Kind regards,<br>The Mobatec Team"
 						});
 						client.close();
@@ -1107,7 +1148,8 @@ server.post('/courses-register',function(req,res){
 server.get('/courses',function(req,res){
 	if(req.session.user){
 		res.render('courses',{
-			pageInfo: fetchPageInfo('courses','')
+			pageInfo: fetchPageInfo('courses',''),
+			bucket: bucket
 		});
 	}else{
 		res.redirect('/courses-login');
@@ -1117,7 +1159,8 @@ server.get('/courses',function(req,res){
 server.get('/courses2',function(req,res){ 
 	if(req.session.user){
 		res.render('courses2',{
-			pageInfo: fetchPageInfo('courses2','')
+			pageInfo: fetchPageInfo('courses2',''),
+			bucket: bucket
 		});
 	}else{
 		res.redirect('/courses-login');
