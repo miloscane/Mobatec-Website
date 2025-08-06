@@ -115,7 +115,7 @@
                             
                         </script>
                         <div class="buttonsWrap">
-                            <a href="/downloads/Modeller_v4_15925_Setup.exe" class="downloadButton" download>Download Mobatec Modeller</a>
+                            <a href="<%=bucket%>/downloads/<%=modellerVersion%>" class="downloadButton" download>Download Mobatec Modeller</a>
                         </div>
                         <!--<div class="textbox">
                             &nbsp;<br>After you have finished the course you can continue using Mobatec Modeller by buying an <span class="green">Educational License</span>
@@ -171,7 +171,7 @@
                             <div style="position:relative"><div class="scrollAnchor" id="day1video1"></div></div>
                             <div class="title">Introduction Course Day I</div>
                             <div class="smallSeparator"></div>
-                            <p>Let's start with a quick introduction into <span>process modelling</span> and let you know what you will be able to do after you have completed this course.</p>
+                            <!--<p>Let's start with a quick introduction into <span>process modelling</span> and let you know what you will be able to do after you have completed this course.</p>
                             <div class="videos">
                                 <div class="videoWrap">
                                     <video width="1280" controls poster="<%=bucket%>/videos/Courses/Intro/Mathieu-Day1.png">
@@ -179,7 +179,7 @@
                                         Your browser does not support the video tag.
                                     </video>
                                 </div>
-                            </div>
+                            </div>-->
                             <p>In this <span>Introduction</span> you will learn about the layout and schedule of the Mobatec Online Course “<span>Introduction to Process Modelling & Simulation</span>”. You will get familiarised with the Mobatec Modeller modelling environment, getting to know its basic layout as well as learning about the modelling environment options and features in general.</p>
                             <div class="videos">
                                 <div class="smallSeparator"></div>
@@ -193,12 +193,12 @@
                             <div style="position:relative"><div class="scrollAnchor" id="day1video2"></div></div>
                             <p>Next, you will learn about the <span>building blocks</span> of any model in Mobatec Modeller (the so-called model building elements). You will also learn about model <span>decomposition methodology</span> and learn about (1) <span>Physical topology</span>, (2) <span>Species topology</span> & (3) <span>Equation topology</span> the three parts of any Mobatec Modeller model.</p>
                             <div class="videos">
-                                <div class="videoWrap">
+                                <!--<div class="videoWrap">
                                     <video width="1280" controls poster="<%=bucket%>/videos/Courses/Intro/Mathieu-Day2.png">
                                         <source src="<%=bucket%>/videos/Courses/Intro/Mathieu-Day2.mp4" type="video/mp4">
                                         Your browser does not support the video tag.
                                     </video>
-                                </div>
+                                </div>-->
                                 <div class="videoWrap">
                                     <video width="1280" controls>
                                         <source src="<%=bucket%>/videos/Courses/Intro/Day1-Part-2.mp4" type="video/mp4">
@@ -209,7 +209,7 @@
                             <div style="position:relative"><div class="scrollAnchor" id="day1handbook"></div></div>
                             <p>Now it’s time to get started with the exercises. As said, this is a this is a <span>do-it-yourself</span> course that consists of 5 exercises which will each take you 2 to 6 hours to work through.<br>&nbsp;<br> The first two exercises are "model-user" exercises, where you learn the basics of working with Mobatec Modeller.</p>
                             <div class="buttonsWrap">
-                                <a href="<%=bucket%>/downloads/documents/Mobatec-Modeller-Handbook.pdf" class="downloadButton" download>Download Handbook PDF</a>
+                                <a href="<%=bucket%>/downloads/documents/Mobatec-Modeller-Handbook.pdf" class="downloadButton" target="_blank" download>Download Handbook PDF</a>
                             </div>
                             <div style="position:relative"><div class="scrollAnchor" id="day1exercise1"></div></div>
                             <div class="titleEx">Exercise I</div>
@@ -221,7 +221,7 @@
                             </ul>
                             <p>This exercise will teach you how to compile, run & customize prebuilt models in Mobatec Modeller.</p>
                             <div class="buttonsWrap">
-                                <a href="<%=bucket%>/downloads/documents/Introduction-Exercise-1.pdf" class="downloadButton" download>Download Exercise I PDF</a>
+                                <a href="<%=bucket%>/downloads/documents/Introduction-Exercise-1.pdf" class="downloadButton" target="_blank" download>Download Exercise I PDF</a>
                             </div>
                             <div style="position:relative"><div class="scrollAnchor" id="day1exercise2"></div></div>
                             <div class="titleEx">Exercise II</div>
@@ -234,7 +234,7 @@
                             </ul>
                             <p>This tutorial will teach you how build and initialize a flowsheet using library models. How to make your model transparent using value displays and run real time process simulations.</p>
                             <div class="buttonsWrap">
-                                <a href="<%=bucket%>/downloads/documents/Introduction-Exercise-2.pdf" class="downloadButton" download>Download Exercise II PDF</a>
+                                <a href="<%=bucket%>/downloads/documents/Introduction-Exercise-2.pdf" class="downloadButton" target="_blank" download>Download Exercise II PDF</a>
                             </div>
                         </div>
                         <div class="exercisePart">
@@ -244,7 +244,7 @@
                             <p>In this part, you will start learning <span>real equation-based modelling</span> using the "Buffer Tank" model example, where you will learn how <span>mass balances</span> are <span>automatically generated</span> in Mobatec Modeller.</p>
                             <div class="videos">
                                 <div class="videoWrap">
-                                    <video width="1280" controls poster="/images/Poster2.jpg">
+                                    <video width="1280" controls poster="<%=bucket%>/images/Poster2.jpg">
                                         <source src="<%=bucket%>/videos/Courses/Intro/Day2-Part-1.mp4" type="video/mp4">
                                         Your browser does not support the video tag.
                                     </video>
@@ -272,7 +272,7 @@
                             </ul>
                             <p>This tutorial will teach you how build your first model from scratch, perform Degrees of Freedom (DOF) analysis, and understand how to get consistent set of initial conditions every time.</p>
                             <div class="buttonsWrap">
-                                <a href="<%=bucket%>/downloads/documents/Introduction-Exercise-3.pdf" class="downloadButton" download>Download Exercise III PDF</a>
+                                <a href="<%=bucket%>/downloads/documents/Introduction-Exercise-3.pdf" target="_blank" class="downloadButton" download>Download Exercise III PDF</a>
                             </div>
                         </div>
                         <div class="exercisePart">
@@ -320,7 +320,7 @@
                             </ul>
                             <p>This tutorial teaches you to add reactions and make reactor models from scratch. How to use global parameters feature and model discontinuities. How to make dynamic plots and make use of button objects.</p>
                             <div class="buttonsWrap">
-                                <a href="<%=bucket%>/downloads/documents/Introduction-Exercise-4.pdf" class="downloadButton" download>Download Exercise IV PDF</a>
+                                <a href="<%=bucket%>/downloads/documents/Introduction-Exercise-4.pdf" target="_blank" class="downloadButton" download>Download Exercise IV PDF</a>
                             </div>
                             <div style="position:relative"><div class="scrollAnchor" id="day3exercise5"></div></div>
                             <div class="titleEx">Exercise V</div>
@@ -334,7 +334,7 @@
                             </ul>
                             <p>This tutorial teaches you how energy balances are generated. How to make use of thermodynamic database property calculations. How to make composite multi-layer models and how to communicate parameters & variable values between different model layers. How to import current simulation state as initial conditions.</p>
                             <div class="buttonsWrap">
-                                <a href="<%=bucket%>/downloads/documents/Introduction-Exercise-5.pdf" class="downloadButton" download>Download Exercise V PDF</a>
+                                <a href="<%=bucket%>/downloads/documents/Introduction-Exercise-5.pdf" target="_blank" class="downloadButton" download>Download Exercise V PDF</a>
                             </div>
                             <div class="smallSeparator"></div>
                             <ul>
@@ -358,14 +358,14 @@
                                     </script>
                                 </div>
                             </div>-->
-                            <div class="videos">
+                            <!--<div class="videos">
                                 <div class="videoWrap">
                                     <video width="1280" controls poster="<%=bucket%>/videos/Courses/Intro/Mathieu-Day3.png">
                                         <source src="<%=bucket%>/videos/Courses/Intro/Mathieu-Day3.mp4" type="video/mp4">
                                         Your browser does not support the video tag.
                                     </video>
                                 </div>
-                            </div>
+                            </div>-->
                             <p>Good luck with all the exercises! We hope you learned a lot!</p>
                             <p>A <span>Mobatec certificate</span> will be awarded to anyone who completes the course, by sending us the requested model file. The certificate can be <span>validated</span> on our website and shared on social networks like <span>LinkedIN</span>.</p>
 
