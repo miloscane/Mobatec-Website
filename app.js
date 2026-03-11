@@ -53,7 +53,7 @@ function hashString(string){
 	return hash
 }
 
-var modellerVersion = "Modeller_v4_17250_Setup.exe"
+var modellerVersion = "Modeller_v4_17357_Setup.exe"
 
 //PORT Listening
 http.listen(process.env.PORT, function(){
